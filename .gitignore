@@ -34,4 +34,8 @@
 /app/assets/builds/*
 !/app/assets/builds/.keep
 
+# Yarn
 /node_modules
+
+# Simplecov
+/coverage
