@@ -10,7 +10,16 @@
     "tailwindcss": "^3.2.1"
   },
   "scripts": {
+    "lint": "npx standard app/javascript",
     "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=assets",
     "build:css": "tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css --minify"
+  },
+  "devDependencies": {
+    "standard": "^17.0.0"
+  },
+  "standard": {
+    "ignore": [
+      "app/javascript/controllers/index.js"
+    ]
   }
 }

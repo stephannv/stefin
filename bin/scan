@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -e
+
+echo "=================================================="
+echo "== Scanning code vulnerabiliities with brakeman =="
+echo "=================================================="
+if ! command -v brakeman &> /dev/null
+then
+  echo "> Installing brakeman..."
+  gem install brakeman
+fi
+brakeman -A -z -q --no-pager

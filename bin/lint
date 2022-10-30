@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -e
+
+echo "============================================"
+echo "== Looking for code offenses with Rubocop =="
+echo "============================================"
+bundle exec standardrb --fix
+
+echo "==============================================="
+echo "== Looking for code offenses with standardjs =="
+echo "==============================================="
+yarn lint --fix
