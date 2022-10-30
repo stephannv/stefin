@@ -1,0 +1,14 @@
+services:
+  db:
+    image: postgres:15.0-alpine
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    ports:
+      - "5446:5432"
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: stefin_development
+
+volumes:
+  db-data:

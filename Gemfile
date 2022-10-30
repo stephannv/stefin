@@ -3,70 +3,65 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.1.2"
 
-# Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.0.4"
-
-# The modern asset pipeline for Rails [https://github.com/rails/propshaft]
-gem "propshaft"
-
-# Use postgresql as the database for Active Record
-gem "pg", "~> 1.1"
-
-# Use the Puma web server [https://github.com/puma/puma]
-gem "puma", "~> 5.0"
-
-# Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
-gem "jsbundling-rails"
-
-# Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
-gem "turbo-rails"
-
-# Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
-gem "stimulus-rails"
+# Reduces boot times through caching; required in config/boot.rb
+gem "bootsnap", "1.13.0", require: false
 
 # Bundle and process CSS [https://github.com/rails/cssbundling-rails]
-gem "cssbundling-rails"
+gem "cssbundling-rails", "1.1.1"
 
-# Build JSON APIs with ease [https://github.com/rails/jbuilder]
-gem "jbuilder"
+# Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
+gem "jsbundling-rails", "1.0.3"
 
-# Use Redis adapter to run Action Cable in production
-# gem "redis", "~> 4.0"
+# Use postgresql as the database for Active Record
+gem "pg", "1.4.4"
 
-# Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
-# gem "kredis"
+# The modern asset pipeline for Rails [https://github.com/rails/propshaft]
+gem "propshaft", "0.6.4"
 
-# Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
-# gem "bcrypt", "~> 3.1.7"
+# Use the Puma web server [https://github.com/puma/puma]
+gem "puma", "6.0.0"
+
+# Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
+gem "rails", "7.0.4"
+
+# Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
+gem "stimulus-rails", "1.1.0"
+
+# Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
+gem "turbo-rails", "1.3.2"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
-
-# Reduces boot times through caching; required in config/boot.rb
-gem "bootsnap", require: false
-
-# Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
-# gem "image_processing", "~> 1.2"
+gem "tzinfo-data", "2.0.5", platforms: %i[mingw mswin x64_mingw jruby]
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem "debug", "1.6.3", platforms: %i[mri mingw x64_mingw]
+
+  # factory_bot is a fixtures replacement with a straightforward definition syntax [https://github.com/thoughtbot/factory_bot_rails]
+  gem "factory_bot_rails", "6.2.0"
 end
 
 group :development do
-  # Use console on exceptions pages [https://github.com/rails/web-console]
-  gem "web-console"
-
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
-  # gem "rack-mini-profiler"
+  gem "rack-mini-profiler", "3.0.0"
 
-  # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
-  # gem "spring"
+  # Ruby Style Guide, with linter & automatic code fixer [https://github.com/testdouble/standard]
+  gem "standard", "1.16.1"
+
+  # Use console on exceptions pages [https://github.com/rails/web-console]
+  gem "web-console", "4.2.0"
 end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  gem "capybara"
-  gem "selenium-webdriver"
-  gem "webdrivers"
+  gem "capybara", "3.37.1"
+
+  # Behaviour Driven Development for Ruby. [https://relishapp.com/rspec/rspec-rails/docs]
+  gem "rspec-rails", "6.0.1"
+
+  # This gem provides Ruby bindings for Selenium and supports MRI >= 2.6 [https://github.com/SeleniumHQ/selenium/tree/trunk/rb]
+  gem "selenium-webdriver", "4.5.0"
+
+  # Run Selenium tests more easily with install and updates for all supported webdrivers [https://github.com/titusfortner/webdrivers]
+  gem "webdrivers", "5.2.0"
 end
