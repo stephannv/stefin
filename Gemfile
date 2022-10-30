@@ -62,6 +62,9 @@ group :test do
   # This gem provides Ruby bindings for Selenium and supports MRI >= 2.6 [https://github.com/SeleniumHQ/selenium/tree/trunk/rb]
   gem "selenium-webdriver", "4.5.0"
 
+  # SimpleCov is a code coverage analysis tool for Ruby. [https://github.com/simplecov-ruby/simplecov]
+  gem "simplecov", "0.21.2"
+
   # Run Selenium tests more easily with install and updates for all supported webdrivers [https://github.com/titusfortner/webdrivers]
   gem "webdrivers", "5.2.0"
 end
