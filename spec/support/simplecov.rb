@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require "simplecov"
 
 SimpleCov.start do
@@ -7,6 +5,7 @@ SimpleCov.start do
   add_group "Jobs", "app/jobs"
   add_group "Models", "app/models"
   add_group "Mailers", "app/mailers"
+  add_group "Views", "app/views"
 
   add_filter "config"
   add_filter "spec"
