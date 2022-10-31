@@ -15,11 +15,14 @@ gem "jsbundling-rails", "1.0.3"
 # Use postgresql as the database for Active Record
 gem "pg", "1.4.4"
 
+# Phlex is a framework for building fast, reusable, testable views in pure Ruby. [https://github.com/joeldrapper/phlex]
+gem "phlex", "0.4.0"
+
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem "propshaft", "0.6.4"
 
 # Use the Puma web server [https://github.com/puma/puma]
-gem "puma", "6.0.0"
+gem "puma", "5.6.5"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "7.0.4"
