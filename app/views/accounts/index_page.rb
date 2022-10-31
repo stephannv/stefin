@@ -1,8 +1,8 @@
 module Accounts
   class IndexPage < ApplicationView
     def template
-      render Layouts::Base.new do
-        render Layouts::Shell.new do
+      render Layout::Base.new do
+        render Layout::Shell.new do
           h1 { t(".accounts") }
         end
       end

@@ -1,4 +1,4 @@
-module Layouts
+module Layout
   class Navbar < ApplicationView
     def template(&content)
       div class: "navbar bg-base-100" do

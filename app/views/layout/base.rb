@@ -1,4 +1,4 @@
-module Layouts
+module Layout
   class Base < ApplicationView
     include Phlex::Rails::Layout
 

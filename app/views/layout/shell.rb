@@ -1,4 +1,4 @@
-module Layouts
+module Layout
   class Shell < ApplicationView
     def template(&content)
       div class: "drawer drawer-mobile" do
@@ -20,7 +20,7 @@ module Layouts
 
     def navbar
       div class: "sticky top-0 left-0 z-30" do
-        render Layouts::Navbar.new
+        render Layout::Navbar.new
       end
     end
 
@@ -28,7 +28,7 @@ module Layouts
       div class: "drawer-side" do
         label for: "drawer-toggle", class: "drawer-overlay"
 
-        render Layouts::Sidebar.new
+        render Layout::Sidebar.new
       end
     end
 

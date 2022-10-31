@@ -1,4 +1,4 @@
-module Layouts
+module Layout
   class Sidebar < ApplicationView
     def template(&content)
       ul class: "menu w-80 bg-base-100 text-base-content border-r border-gray-700" do
