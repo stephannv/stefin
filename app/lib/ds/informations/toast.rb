@@ -1,5 +1,5 @@
 module Ds
-  module Information
+  module Informations
     class Toast < Ds::Base
       COLOR_CLASSES = {
         info: "alert-info",
@@ -26,7 +26,7 @@ module Ds
 
       def template(&content)
         div class: "toast max-lg:w-full animate-fade-in-up", **html_options do
-          div(**classes("alert text-xl justify-start", color_classes)) do
+          div(**classes("alert lg:text-xl justify-start", color_classes)) do
             icon name: icon_name, outline: true, size: "w-8 h-8"
             div(&content)
           end

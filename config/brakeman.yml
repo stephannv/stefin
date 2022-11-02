@@ -1,0 +1,6 @@
+---
+:run_all_checks: true
+:exit_on_warn: true
+:quiet: true
+:skip_checks:
+- CheckRender

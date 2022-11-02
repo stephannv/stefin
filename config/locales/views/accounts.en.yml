@@ -8,6 +8,14 @@ en:
       new:
         page_title: New Account
 
+      edit:
+        page_title: Edit Account
+
     components:
+      card:
+        edit: Edit
+
       form:
+        destroy: Delete account
+        destroy_confirm: All transactions from this account will be deleted. Are you sure?
         cancel: Cancel

@@ -26,11 +26,23 @@ module Accounts
 
             form_actions do
               form.submit
-              link_button color: :ghost, href: accounts_path do
+
+              destroy_button if account.persisted?
+
+              link_button href: accounts_path, color: :ghost do
                 t(".cancel")
               end
             end
           end
+        end
+      end
+
+      def destroy_button
+        link_button href: account_path(account),
+          color: :error,
+          outline: true,
+          data: {turbo_method: :delete, turbo_confirm: t(".destroy_confirm")} do
+          t(".destroy")
         end
       end
     end
