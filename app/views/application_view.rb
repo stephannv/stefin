@@ -1,5 +1,10 @@
 class ApplicationView < Phlex::View
   include Rails.application.routes.url_helpers
+  include Ds::Helpers
+
+  def call(...)
+    super(...) if render?
+  end
 
   private
 
@@ -13,5 +18,9 @@ class ApplicationView < Phlex::View
 
   def current_controller?(controller_class)
     helpers.request.controller_class == controller_class
+  end
+
+  def render?
+    true
   end
 end

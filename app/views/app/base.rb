@@ -1,6 +1,8 @@
-module Layout
+module App
   class Base < ApplicationView
     include Phlex::Rails::Layout
+
+    private
 
     def template(&content)
       doctype
@@ -19,6 +21,7 @@ module Layout
 
         body class: "bg-base-300" do
           yield_content(&content)
+          render App::Toast.new(flash: helpers.flash)
         end
       end
     end

@@ -225,6 +225,8 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    service_actor (3.4.1)
+      zeitwerk
     shoulda-matchers (5.2.0)
       activesupport (>= 5.2.0)
     simplecov (0.21.2)
@@ -284,6 +286,7 @@ DEPENDENCIES
   rails (= 7.0.4)
   rspec-rails (= 6.0.1)
   selenium-webdriver (= 4.5.0)
+  service_actor (= 3.4.1)
   shoulda-matchers (= 5.2.0)
   simplecov (= 0.21.2)
   standard (= 1.16.1)
