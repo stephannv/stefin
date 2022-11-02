@@ -2,3 +2,10 @@ en:
   accounts:
     create:
       success: Your account has been created
+
+    update:
+      success: Your account has been updated
+
+    destroy:
+      success: Your account has been destroyed
+      error: Your account could not be destroyed

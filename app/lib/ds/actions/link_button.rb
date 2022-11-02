@@ -13,25 +13,42 @@ module Ds
         error: "btn-error"
       }.freeze
 
-      def initialize(color: nil, **html_options)
+      SIZE_CLASSES = {
+        xs: "btn-xs",
+        sm: "btn-sm",
+        lg: "btn-lg"
+      }.freeze
+
+      def initialize(color: nil, size: nil, square: false, outline: false, **html_options)
         @color = color
+        @size = size
+        @square = square
+        @outline = outline
         @extra_classes = html_options.delete(:class)
         @html_options = html_options
       end
 
       private
 
-      attr_reader :color, :extra_classes, :html_options
+      attr_reader :color, :size, :square, :outline, :extra_classes, :html_options
 
       def template(&content)
-        a(**html_options.reverse_merge(classes("btn", color_classes, extra_classes))) do
+        a class: build_classes, **html_options do
           yield_content(&content)
         end
       end
 
-      def color_classes
-        COLOR_CLASSES[color]
+      def build_classes
+        tokens("btn", color_classes, size_classes, extra_classes, square?: "btn-square", outline?: "btn-outline")
       end
+
+      def color_classes = COLOR_CLASSES[color]
+
+      def size_classes = SIZE_CLASSES[size]
+
+      def square? = @square
+
+      def outline? = @outline
     end
   end
 end
