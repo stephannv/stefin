@@ -27,6 +27,9 @@ gem "puma", "5.6.5"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "7.0.4"
 
+# Composable Ruby service objects [https://github.com/sunny/actor]
+gem "service_actor", "3.4.1"
+
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails", "1.1.0"
 

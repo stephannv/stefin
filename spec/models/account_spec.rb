@@ -20,5 +20,6 @@ RSpec.describe Account, type: :model do
     it { is_expected.not_to allow_value("#ff00aaff").for(:color) }
     it { is_expected.not_to allow_value("#ff00zz").for(:color) }
     it { is_expected.not_to allow_value("random value").for(:color) }
+    it { is_expected.not_to allow_value("").for(:color) }
   end
 end

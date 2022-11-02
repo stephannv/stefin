@@ -1,4 +1,13 @@
 en:
   accounts:
-    index_page:
-      accounts: Accounts
+    pages:
+      index:
+        page_title: Accounts
+        new_account: New Account
+
+      new:
+        page_title: New Account
+
+    components:
+      form:
+        cancel: Cancel

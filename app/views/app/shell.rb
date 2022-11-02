@@ -1,5 +1,13 @@
-module Layout
+module App
   class Shell < ApplicationView
+    def initialize(title: "")
+      @title = title
+    end
+
+    private
+
+    attr_reader :title
+
     def template(&content)
       div class: "drawer drawer-mobile" do
         input id: "drawer-toggle", type: "checkbox", class: "drawer-toggle"
@@ -16,11 +24,9 @@ module Layout
       end
     end
 
-    private
-
     def navbar
       div class: "sticky top-0 left-0 z-30" do
-        render Layout::Navbar.new
+        render App::Navbar.new(title: title)
       end
     end
 
@@ -28,12 +34,12 @@ module Layout
       div class: "drawer-side" do
         label for: "drawer-toggle", class: "drawer-overlay"
 
-        render Layout::Sidebar.new
+        render App::Sidebar.new
       end
     end
 
     def content(&content)
-      div class: "flex grow" do
+      div class: "flex grow items-start lg:items-center" do
         yield_content(&content)
       end
     end
