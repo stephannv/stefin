@@ -2,6 +2,7 @@ module Ds
   module Helpers
     COMPONENTS = {
       card: Ds::Structures::Card,
+      empty_state: Ds::Feedback::EmptyState,
       form_actions: Ds::Forms::Actions,
       icon: Ds::Visuals::Icon,
       input_error_message: Ds::Forms::InputErrorMessage,
@@ -9,7 +10,7 @@ module Ds
       link_button: Ds::Actions::LinkButton,
       page: Ds::Layouts::Page,
       stack_layout: Ds::Forms::StackLayout,
-      toast: Ds::Informations::Toast
+      toast: Ds::Feedback::Toast
     }
 
     COMPONENTS.each do |name, component_class|

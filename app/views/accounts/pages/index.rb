@@ -16,19 +16,27 @@ module Accounts
               page.title { t(".page_title") }
 
               page.body do
-                div class: "flex flex-col gap-2" do
-                  div class: "flex justify-end py-2" do
-                    link_button href: new_account_path, color: :primary do
-                      t(".new_account")
-                    end
-                  end
-
-                  accounts.each do |account|
-                    render Accounts::Components::Card.new(account: account)
-                  end
+                if accounts.empty?
+                  render Accounts::Components::EmptyState.new
+                else
+                  accounts_list
                 end
               end
             end
+          end
+        end
+      end
+
+      def accounts_list
+        div class: "flex flex-col gap-2" do
+          div class: "flex justify-end py-2" do
+            link_button href: new_account_path, color: :primary do
+              t(".new_account")
+            end
+          end
+
+          accounts.each do |account|
+            render Accounts::Components::Card.new(account: account)
           end
         end
       end

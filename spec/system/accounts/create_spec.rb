@@ -5,7 +5,7 @@ RSpec.describe "Account creation", type: :system do
     it "creates a new account" do
       visit accounts_path
 
-      click_link I18n.t("accounts.pages.index.new_account")
+      click_link I18n.t("accounts.components.empty_state.new_account")
 
       expect(page).to have_css("h1", text: I18n.t("accounts.pages.new.page_title"))
 
@@ -23,7 +23,7 @@ RSpec.describe "Account creation", type: :system do
     it "renders input errors" do
       visit accounts_path
 
-      click_link I18n.t("accounts.pages.index.new_account")
+      click_link I18n.t("accounts.components.empty_state.new_account")
 
       expect(page).to have_css("h1", text: I18n.t("accounts.pages.new.page_title"))
 
