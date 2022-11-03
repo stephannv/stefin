@@ -1,5 +1,5 @@
 module Ds
-  module Informations
+  module Feedback
     class Toast < Ds::Base
       COLOR_CLASSES = {
         info: "alert-info",

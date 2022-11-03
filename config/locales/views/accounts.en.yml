@@ -15,6 +15,11 @@ en:
       card:
         edit: Edit
 
+      empty_state:
+        title: Create your account!
+        description: After creating an account, you will be able to start recording transactions.
+        new_account: New account
+
       form:
         destroy: Delete account
         destroy_confirm: All transactions from this account will be deleted. Are you sure?
