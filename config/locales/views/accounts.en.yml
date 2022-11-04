@@ -2,14 +2,14 @@ en:
   accounts:
     pages:
       index:
-        page_title: Accounts
-        new_account: New Account
+        page_title: accounts
+        new_account: New account
 
       new:
-        page_title: New Account
+        page_title: new account
 
       edit:
-        page_title: Edit Account
+        page_title: edit account
 
     components:
       card:

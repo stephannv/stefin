@@ -19,7 +19,7 @@ module App
           javascript_include_tag "application", "data-turbo-track": "reload", defer: true
         end
 
-        body class: "bg-base-300" do
+        body do
           yield_content(&content)
           render App::Toast.new(flash: helpers.flash)
         end

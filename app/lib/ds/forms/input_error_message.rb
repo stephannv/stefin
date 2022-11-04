@@ -5,7 +5,7 @@ module Ds
 
       def template(&content)
         label class: "label" do
-          span class: "label-text-alt text-rose-400", &content
+          span class: "label-text-alt text-error font-bold", &content
         end
       end
     end

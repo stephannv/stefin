@@ -36,7 +36,7 @@ RSpec.describe "Accounts list", type: :system do
       visit accounts_path
 
       expect(page).to have_css(".text-xl", text: I18n.t("accounts.components.empty_state.title"))
-      expect(page).to have_css(".font-light", text: I18n.t("accounts.components.empty_state.description"))
+      expect(page).to have_content(I18n.t("accounts.components.empty_state.description"))
     end
   end
 end

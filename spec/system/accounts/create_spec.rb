@@ -33,8 +33,8 @@ RSpec.describe "Account creation", type: :system do
       click_button I18n.t("helpers.submit.create", model: I18n.t("activerecord.models.account"))
 
       expect(page).to have_css("h1", text: I18n.t("accounts.pages.new.page_title"))
-      expect(page).to have_css(".label .label-text-alt.text-rose-400", text: I18n.t("errors.messages.blank").capitalize)
-      expect(page).to have_css(".label .label-text-alt.text-rose-400", text: I18n.t("errors.messages.invalid").capitalize)
+      expect(page).to have_css(".label .label-text-alt.text-error", text: I18n.t("errors.messages.blank"))
+      expect(page).to have_css(".label .label-text-alt.text-error", text: I18n.t("errors.messages.invalid"))
     end
   end
 end

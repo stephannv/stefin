@@ -16,7 +16,11 @@ module Accounts
               page.title { t(".page_title") }
 
               page.body do
-                render Accounts::Components::Form.new(account: account)
+                card do |card|
+                  card.body do
+                    render Accounts::Components::Form.new(account: account)
+                  end
+                end
               end
             end
           end
