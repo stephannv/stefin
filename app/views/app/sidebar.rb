@@ -3,7 +3,7 @@ module App
     private
 
     def template(&content)
-      ul class: "menu w-80 bg-base-100 text-base-content border-r border-gray-700" do
+      ul class: "menu w-80 bg-base-100 border-r-2 border-neutral-content" do
         accounts_menu_item
       end
     end

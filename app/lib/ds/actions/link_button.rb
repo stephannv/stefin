@@ -5,7 +5,7 @@ module Ds
         primary: "btn-primary",
         secondary: "btn-secondary",
         accent: "btn-accent",
-        ghost: "btn-ghost",
+        ghost: "btn bg-transparent text-base-content border-[3px] border-base-content hover:border-base-content hover:bg-transparent",
         link: "btn-link",
         info: "btn-info",
         success: "btn-success",
@@ -39,7 +39,14 @@ module Ds
       end
 
       def build_classes
-        tokens("btn", color_classes, size_classes, extra_classes, square?: "btn-square", outline?: "btn-outline")
+        tokens(
+          "btn font-black text-lg flex gap-2",
+          color_classes,
+          size_classes,
+          extra_classes,
+          square?: "btn-square",
+          outline?: "btn-outline"
+        )
       end
 
       def color_classes = COLOR_CLASSES[color]

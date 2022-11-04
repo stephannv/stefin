@@ -12,7 +12,7 @@ module App
       div class: "drawer drawer-mobile" do
         input id: "drawer-toggle", type: "checkbox", class: "drawer-toggle"
 
-        div class: "drawer-content" do
+        div class: "drawer-content bg-base-200" do
           div class: "flex flex-col min-h-screen" do
             navbar
 
@@ -31,7 +31,7 @@ module App
     end
 
     def sidebar
-      div class: "drawer-side" do
+      div class: "drawer-side bg-base-100 shadow" do
         label for: "drawer-toggle", class: "drawer-overlay"
 
         render App::Sidebar.new
@@ -39,7 +39,7 @@ module App
     end
 
     def content(&content)
-      div class: "flex grow items-start lg:items-center" do
+      div class: "flex grow items-start" do
         yield_content(&content)
       end
     end

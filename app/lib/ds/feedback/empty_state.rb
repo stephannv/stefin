@@ -6,7 +6,7 @@ module Ds
       end
 
       def description(&content)
-        div class: "text-center font-light", &content
+        div class: "text-center", &content
       end
 
       def actions(&content)
@@ -16,7 +16,7 @@ module Ds
       private
 
       def template(&content)
-        div class: "border-dashed border-2 border-gray-600 rounded-xl p-8", &content
+        div class: "bg-base-100 border-dashed border-[4px] border-primary p-8", &content
       end
     end
   end

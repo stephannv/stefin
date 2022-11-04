@@ -40,7 +40,6 @@ module Accounts
       def destroy_button
         link_button href: account_path(account),
           color: :error,
-          outline: true,
           data: {turbo_method: :delete, turbo_confirm: t(".destroy_confirm")} do
           t(".destroy")
         end
