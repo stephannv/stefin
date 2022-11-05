@@ -5,6 +5,7 @@ module App
     def template(&content)
       ul class: "menu w-80 bg-base-100 border-r-2 border-neutral-content" do
         accounts_menu_item
+        categories_menu_item
       end
     end
 
@@ -12,6 +13,13 @@ module App
       menu_item(url: accounts_path, active: current_controller?(AccountsController)) do
         icon(name: :credit_card)
         span { t(".accounts") }
+      end
+    end
+
+    def categories_menu_item
+      menu_item(url: categories_path, active: current_controller?(CategoriesController)) do
+        icon(name: :tag)
+        span { t(".categories") }
       end
     end
 

@@ -3,7 +3,7 @@ en:
     pages:
       index:
         page_title: accounts
-        new_account: New account
+        new_account: new account
 
       new:
         page_title: new account
@@ -18,7 +18,7 @@ en:
       empty_state:
         title: Create your account!
         description: After creating an account, you will be able to start recording transactions.
-        new_account: New account
+        new_account: new account
 
       form:
         destroy: Delete account

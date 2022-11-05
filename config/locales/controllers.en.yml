@@ -9,3 +9,14 @@ en:
     destroy:
       success: Your account has been destroyed
       error: Your account could not be destroyed
+
+  categories:
+    create:
+      success: Your category has been created
+
+    update:
+      success: Your category has been updated
+
+    destroy:
+      success: Your category has been destroyed
+      error: Your category could not be destroyed
