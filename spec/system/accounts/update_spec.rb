@@ -12,7 +12,7 @@ RSpec.describe "Account update", type: :system do
       expect(page).to have_css("h1", text: I18n.t("accounts.pages.edit.page_title"))
 
       fill_in I18n.t("activerecord.attributes.account.title"), with: "Updated title"
-      fill_in I18n.t("activerecord.attributes.account.color"), with: "#ff00ff"
+      find("label[for='account_color_#{Ds::Forms::ColorPicker::PALETTE.sample}'").click
 
       click_button I18n.t("helpers.submit.update", model: I18n.t("activerecord.models.account"))
 
@@ -33,13 +33,11 @@ RSpec.describe "Account update", type: :system do
       expect(page).to have_css("h1", text: I18n.t("accounts.pages.edit.page_title"))
 
       fill_in I18n.t("activerecord.attributes.account.title"), with: ""
-      fill_in I18n.t("activerecord.attributes.account.color"), with: "invalid-color"
 
       click_button I18n.t("helpers.submit.update", model: I18n.t("activerecord.models.account"))
 
       expect(page).to have_css("h1", text: I18n.t("accounts.pages.edit.page_title"))
       expect(page).to have_css(".label .label-text-alt.text-error", text: I18n.t("errors.messages.blank"))
-      expect(page).to have_css(".label .label-text-alt.text-error", text: I18n.t("errors.messages.invalid"))
     end
   end
 end

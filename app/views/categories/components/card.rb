@@ -14,7 +14,7 @@ module Categories
           card.title do
             div class: "flex items-center justify-between w-full p-4" do
               div class: "flex gap-2 items-center" do
-                div class: "w-7 h-7 mask mask-squircle", style: "background-color: #{category.color}"
+                color_icon value: category.color
                 text category.title
               end
 

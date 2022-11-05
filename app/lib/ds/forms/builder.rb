@@ -17,10 +17,14 @@ module Ds
       end
 
       def text_field(attribute, **options)
-        template.capture do
-          template.concat super(attribute, options.reverse_merge(class: input_classes(attribute)))
+        input_with_error_message(attribute) do
+          super(attribute, options.reverse_merge(class: input_classes(attribute)))
+        end
+      end
 
-          template.concat input_error_message { error_messages(attribute) } if object.errors.key?(attribute)
+      def color_field(attribute, **options)
+        input_with_error_message(attribute) do
+          color_picker(id: field_id(attribute), name: field_name(attribute), selected: object.send(attribute))
         end
       end
 
@@ -33,6 +37,14 @@ module Ds
       end
 
       private
+
+      def input_with_error_message(attribute, &block)
+        template.capture do
+          template.concat block.call
+
+          template.concat input_error_message { error_messages(attribute) } if object.errors.key?(attribute)
+        end
+      end
 
       def input_classes(attribute)
         [INPUT_BASE_CLASSES, INPUT_ERROR_CLASSES => object.errors.key?(attribute)]
