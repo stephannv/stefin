@@ -21,7 +21,7 @@ module Categories
 
             input_wrapper do
               form.label :color
-              form.text_field :color
+              form.color_field :color
             end
 
             form_actions do

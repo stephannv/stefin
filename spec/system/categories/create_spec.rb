@@ -10,7 +10,7 @@ RSpec.describe "Category creation", type: :system do
       expect(page).to have_css("h1", text: I18n.t("categories.pages.new.page_title"))
 
       fill_in I18n.t("activerecord.attributes.category.title"), with: "My category"
-      fill_in I18n.t("activerecord.attributes.category.color"), with: "#ff0000"
+      find("label[for='category_color_#{Ds::Forms::ColorPicker::PALETTE.sample}'").click
 
       click_button I18n.t("helpers.submit.create", model: I18n.t("activerecord.models.category"))
 
@@ -28,13 +28,11 @@ RSpec.describe "Category creation", type: :system do
       expect(page).to have_css("h1", text: I18n.t("categories.pages.new.page_title"))
 
       fill_in I18n.t("activerecord.attributes.category.title"), with: ""
-      fill_in I18n.t("activerecord.attributes.category.color"), with: "#not-valid"
 
       click_button I18n.t("helpers.submit.create", model: I18n.t("activerecord.models.category"))
 
       expect(page).to have_css("h1", text: I18n.t("categories.pages.new.page_title"))
       expect(page).to have_css(".label .label-text-alt.text-error", text: I18n.t("errors.messages.blank"))
-      expect(page).to have_css(".label .label-text-alt.text-error", text: I18n.t("errors.messages.invalid"))
     end
   end
 end

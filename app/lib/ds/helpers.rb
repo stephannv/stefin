@@ -2,6 +2,8 @@ module Ds
   module Helpers
     COMPONENTS = {
       card: Ds::Structures::Card,
+      color_icon: Ds::Visuals::ColorIcon,
+      color_picker: Ds::Forms::ColorPicker,
       empty_state: Ds::Feedback::EmptyState,
       form_actions: Ds::Forms::Actions,
       icon: Ds::Visuals::Icon,
