@@ -2,8 +2,13 @@ en:
   activerecord:
     models:
       account: Account
+      category: Category
 
     attributes:
       account:
+        title: Title
+        color: Color
+
+      category:
         title: Title
         color: Color

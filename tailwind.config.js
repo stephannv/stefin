@@ -71,8 +71,8 @@ module.exports = {
 
           "--btn-text-case": "lowercase",
 
-          "--rounded-box": "0",
-          "--rounded-btn": "0"
+          "--rounded-box": "0.5rem",
+          "--rounded-btn": "0.25rem"
         }
       }
     ]

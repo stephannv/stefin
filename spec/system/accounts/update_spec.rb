@@ -18,7 +18,7 @@ RSpec.describe "Account update", type: :system do
 
       expect(page).to have_css("h1", text: I18n.t("accounts.pages.index.page_title"))
       expect(page).to have_css(".toast .alert.alert-success", text: I18n.t("accounts.update.success"))
-      expect(page).to have_css(".card-title", text: "Updated title")
+      expect(page).to have_css("h1", text: "Updated title")
     end
   end
 

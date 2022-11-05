@@ -8,11 +8,11 @@ module Ds
       end
 
       def body(&content)
-        div class: "card-body p-4 lg:p-8", &content
+        div class: "p-4 lg:p-8", &content
       end
 
       def title(&content)
-        div class: "card-title font-black", &content
+        h1 class: "text-xl font-black", &content
       end
 
       private
@@ -24,7 +24,7 @@ module Ds
       end
 
       def build_classes
-        tokens("card bg-base-100 border-[4px] border-primary", extra_classes, compact?: "card-compact")
+        tokens("bg-base-100 rounded-lg border-[4px] border-primary", extra_classes)
       end
 
       def compact? = @compact
