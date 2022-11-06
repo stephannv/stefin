@@ -20,3 +20,7 @@ en:
     destroy:
       success: Your category has been destroyed
       error: Your category could not be destroyed
+
+  records:
+    create:
+      success: Your record has been created

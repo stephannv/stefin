@@ -4,8 +4,16 @@ module App
 
     def template(&content)
       ul class: "menu w-80 bg-base-100 border-r-2 border-neutral-content" do
+        records_menu_item
         accounts_menu_item
         categories_menu_item
+      end
+    end
+
+    def records_menu_item
+      menu_item(url: records_path, active: current_controller?(RecordsController)) do
+        icon(name: :banknotes)
+        span { t(".records") }
       end
     end
 

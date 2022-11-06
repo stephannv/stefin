@@ -15,17 +15,17 @@ module Categories
         form_with(model: category, class: "w-full") do |form|
           stack_layout do
             input_wrapper do
-              form.label :title
-              form.text_field :title
+              form.ds_label :title
+              form.ds_text_field :title
             end
 
             input_wrapper do
-              form.label :color
-              form.color_field :color
+              form.ds_label :color
+              form.ds_color_field :color
             end
 
             form_actions do
-              form.submit
+              form.ds_submit
 
               destroy_button if category.persisted?
 

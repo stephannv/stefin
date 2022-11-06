@@ -1,6 +1,6 @@
 module Ds
-  module Forms
-    class StackLayout < Ds::Base
+  module Layouts
+    class Stack < Ds::Base
       private
 
       def template(&content)

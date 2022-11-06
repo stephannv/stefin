@@ -1770,6 +1770,11 @@ side-channel@^1.0.4:
     get-intrinsic "^1.0.2"
     object-inspect "^1.9.0"
 
+simple-mask-money@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/simple-mask-money/-/simple-mask-money-3.0.1.tgz#f96dbe641f0cfa5a0458017a1b92b0402e78bd25"
+  integrity sha512-EdQsBiOE0MhWCpCkUzUm7vbxPviTn/FWXQV6kmYggFLBlBDdWbJGyithizmwdeBFQiunPBZruU2xoX2H8Qlv9w==
+
 simple-swizzle@^0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/simple-swizzle/-/simple-swizzle-0.2.2.tgz#a4da6b635ffcccca33f70d17cb92592de95e557a"

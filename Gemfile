@@ -9,6 +9,9 @@ gem "bootsnap", "1.13.0", require: false
 # Bundle and process CSS [https://github.com/rails/cssbundling-rails]
 gem "cssbundling-rails", "1.1.1"
 
+# EnumerateIt helps you to declare and use enumerations in a very simple and flexible way. [https://github.com/lucascaton/enumerate_it]
+gem "enumerate_it", "3.2.4"
+
 # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
 gem "jsbundling-rails", "1.0.3"
 

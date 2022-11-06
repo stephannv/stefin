@@ -1,4 +1,6 @@
 class Account < ApplicationRecord
+  has_many :records, dependent: :destroy
+
   validates :title, presence: true
   validates :balance_cents, presence: true
   validates :balance_currency, presence: true

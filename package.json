@@ -8,6 +8,7 @@
     "daisyui": "^2.36.1",
     "esbuild": "^0.15.12",
     "postcss": "^8.4.18",
+    "simple-mask-money": "^3.0.1",
     "tailwindcss": "^3.2.1"
   },
   "scripts": {
