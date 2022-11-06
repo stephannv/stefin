@@ -1,0 +1,13 @@
+en:
+  records:
+    pages:
+      index:
+        page_title: records
+        new_record: new record
+
+      new:
+        page_title: new record
+
+    components:
+      form:
+        cancel: cancel

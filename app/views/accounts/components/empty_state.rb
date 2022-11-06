@@ -5,6 +5,8 @@ module Accounts
 
       def template
         empty_state do |empty_state|
+          empty_state.image(src: helpers.image_url("accounts-empty-state.webp"))
+
           empty_state.title { t(".title") }
 
           empty_state.description { t(".description") }

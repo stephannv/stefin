@@ -1,0 +1,5 @@
+en:
+  enumerations:
+    record_groups:
+      expense: expense
+      income: income

@@ -1,14 +1,26 @@
 en:
   activerecord:
     models:
-      account: Account
-      category: Category
+      account: account
+      category: category
+      record: record
 
     attributes:
       account:
-        title: Title
-        color: Color
+        title: title
+        color: color
 
       category:
-        title: Title
-        color: Color
+        title: title
+        color: color
+
+      record:
+        account: account
+        account_id: account
+        category: category
+        category_id: category
+        group: group
+        amount_cents: amount
+        amount_currency: amount currency
+        occurred_on: date
+        description: description

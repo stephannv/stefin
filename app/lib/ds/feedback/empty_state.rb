@@ -1,6 +1,12 @@
 module Ds
   module Feedback
     class EmptyState < Ds::Base
+      def image(src: nil)
+        div class: "flex items-center justify-center p-4" do
+          img src: src, class: "w-1/2"
+        end
+      end
+
       def title(&content)
         div class: "text-xl font-bold text-center", &content
       end

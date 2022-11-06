@@ -5,6 +5,8 @@ module Categories
 
       def template
         empty_state do |empty_state|
+          empty_state.image(src: helpers.image_url("categories-empty-state.webp"))
+
           empty_state.title { t(".title") }
 
           empty_state.description { t(".description") }

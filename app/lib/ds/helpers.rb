@@ -11,8 +11,10 @@ module Ds
       input_wrapper: Ds::Forms::InputWrapper,
       link_button: Ds::Actions::LinkButton,
       page: Ds::Layouts::Page,
-      stack_layout: Ds::Forms::StackLayout,
-      toast: Ds::Feedback::Toast
+      radio_button: Ds::Forms::RadioButton,
+      stack_layout: Ds::Layouts::Stack,
+      toast: Ds::Feedback::Toast,
+      two_column_layout: Ds::Layouts::TwoColumn
     }
 
     COMPONENTS.each do |name, component_class|

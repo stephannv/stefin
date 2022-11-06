@@ -16,7 +16,7 @@ module Ds
 
       attr_reader :id, :name, :selected
 
-      def template(&content)
+      def template
         div class: WRAPPER_CLASSES do
           PALETTE.each do |color|
             label for: "#{id}_#{color}", class: ITEM_CLASSES, style: "background-color: #{color}" do
