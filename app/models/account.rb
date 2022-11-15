@@ -1,4 +1,6 @@
 class Account < ApplicationRecord
+  monetize :balance
+
   has_many :records, dependent: :destroy
 
   validates :title, presence: true

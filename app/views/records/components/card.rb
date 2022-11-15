@@ -69,7 +69,7 @@ module Records
         div class: "text-right" do
           span class: tokens("justify-self-end font-bold text-md", amount_class) do
             text symbol
-            text record.amount_cents
+            text record.amount.format
           end
         end
       end

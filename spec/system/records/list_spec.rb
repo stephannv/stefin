@@ -39,7 +39,7 @@ RSpec.describe "Records list", type: :system do
       expect(page).to have_css("div", text: "My Account")
       expect(page).to have_css("div", text: "My payee")
       expect(page).to have_css("div", text: "My desc")
-      expect(page).to have_css("span.text-error", text: "-1999")
+      expect(page).to have_css("span.text-error", text: "-R$19,99")
 
       expect(page).to have_css("div", style: "background-color: #00ff00")
       expect(page).to have_css("div", text: "Another Category")
@@ -47,7 +47,7 @@ RSpec.describe "Records list", type: :system do
       expect(page).to have_css("div", text: "Another Account")
       expect(page).to have_css("div", text: "Another payee")
       expect(page).to have_css("div", text: "Another desc")
-      expect(page).to have_css("span.text-success", text: "+3549")
+      expect(page).to have_css("span.text-success", text: "+R$35,49")
     end
   end
 
