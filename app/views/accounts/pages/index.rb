@@ -26,7 +26,7 @@ module Accounts
                 if accounts.empty?
                   render Accounts::Components::EmptyState.new
                 else
-                  accounts_list
+                  account_list
                 end
               end
             end
@@ -51,7 +51,7 @@ module Accounts
         end
       end
 
-      def accounts_list
+      def account_list
         div class: "flex flex-col gap-2" do
           accounts.each do |account|
             render Accounts::Components::Card.new(account: account)

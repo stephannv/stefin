@@ -1,6 +1,8 @@
 class RecordsController < ApplicationController
   def index
-    render Records::Pages::Index.new
+    result = Records::List.result
+
+    render Records::Pages::Index.new(records: result.records.to_a)
   end
 
   def new

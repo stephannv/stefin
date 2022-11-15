@@ -12,7 +12,7 @@ module Accounts
       def template
         a href: edit_account_path(account) do
           card(hover: true) do |card|
-            card.body(padding: "px-4 py-6") do
+            card.body do
               div class: "flex gap-4 items-center" do
                 color_icon value: account.color
                 text account.title

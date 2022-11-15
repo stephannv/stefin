@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :record do
-    traits_for_enum :group, RecordGroups.list
+    traits_for_enum :group, RecordGroups.to_h
 
     association :account
     association :category

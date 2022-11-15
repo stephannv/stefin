@@ -14,5 +14,10 @@ en:
       breadcrumbs:
         records: Records
 
+      empty_state:
+        title: Create your first record!
+        description: Recording your expenses and incomes allows a better money management.
+        new_record: New record
+
       form:
         cancel: Cancel
