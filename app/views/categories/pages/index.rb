@@ -26,7 +26,7 @@ module Categories
                 if categories.empty?
                   render Categories::Components::EmptyState.new
                 else
-                  categories_list
+                  category_list
                 end
               end
             end
@@ -51,7 +51,7 @@ module Categories
         end
       end
 
-      def categories_list
+      def category_list
         div class: "flex flex-col gap-2" do
           categories.each do |category|
             render Categories::Components::Card.new(category: category)

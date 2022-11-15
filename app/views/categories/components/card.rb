@@ -12,7 +12,7 @@ module Categories
       def template
         a href: edit_category_path(category) do
           card(hover: true) do |card|
-            card.body(padding: "px-4 py-6") do
+            card.body do
               div class: "flex gap-4 items-center" do
                 color_icon value: category.color
                 text category.title
