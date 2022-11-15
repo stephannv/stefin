@@ -9,7 +9,7 @@ module App
     attr_reader :title
 
     def template(&content)
-      div class: "navbar bg-base-200" do
+      div class: "navbar max-h-16 bg-base-100 text-base-content shadow flex gap-2" do
         div class: "flex-none" do
           label for: "drawer-toggle", class: "btn btn-square btn-ghost lg:hidden" do
             icon(name: :menu)
@@ -17,7 +17,7 @@ module App
         end
 
         div class: "flex-1" do
-          span(class: "text-xl font-black truncate ml-2 lg:ml-4 border-b-4 border-secondary", href: root_path) { title }
+          span(class: "text-xl truncate", href: root_path) { title }
         end
       end
     end

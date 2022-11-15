@@ -18,50 +18,52 @@ module Records
           stack_layout do
             input_wrapper do
               two_column_layout do
-                form.ds_radio_button :group, RecordGroups::EXPENSE do
+                form.radio_button :group, RecordGroups::EXPENSE do
                   RecordGroups.t(RecordGroups::EXPENSE)
                 end
-                form.ds_radio_button :group, RecordGroups::INCOME do
+                form.radio_button :group, RecordGroups::INCOME do
                   RecordGroups.t(RecordGroups::INCOME)
                 end
               end
 
-              form.ds_errors(:group)
+              form.errors(:group)
             end
 
             two_column_layout do
               input_wrapper do
-                form.ds_label(:account_id)
-                form.ds_collection_select(:account_id, accounts, :id, :title)
+                form.label(:account_id)
+                form.collection_select(:account_id, accounts, :id, :title)
               end
 
               input_wrapper do
-                form.ds_label(:category_id)
-                form.ds_collection_select(:category_id, categories, :id, :title)
+                form.label(:category_id)
+                form.collection_select(:category_id, categories, :id, :title)
               end
             end
 
             two_column_layout do
               input_wrapper do
-                form.ds_label(:amount_cents)
-                form.ds_money_field(:amount_cents)
+                form.label(:amount_cents)
+                form.money_field(:amount_cents)
               end
 
               input_wrapper do
-                form.ds_label(:occurred_on)
-                form.ds_date_field(:occurred_on)
+                form.label(:occurred_on)
+                form.date_field(:occurred_on)
               end
             end
 
             input_wrapper do
-              form.ds_label(:description)
-              form.ds_text_field(:description)
+              form.label(:description)
+              form.text_field(:description)
             end
 
             form_actions do
-              form.ds_submit
+              form.submit
+
               link_button color: :ghost, href: records_path do
-                t(".cancel")
+                icon name: :chevron_left, size: "w-5 h-5"
+                text t(".cancel")
               end
             end
           end

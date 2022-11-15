@@ -15,33 +15,24 @@ module Accounts
         form_with(model: account, class: "w-full") do |form|
           stack_layout do
             input_wrapper do
-              form.ds_label :title
-              form.ds_text_field :title
+              form.label :title
+              form.text_field :title, autofocus: true
             end
 
             input_wrapper do
-              form.ds_label :color
-              form.ds_color_field :color
+              form.label :color
+              form.color_field :color
             end
 
             form_actions do
-              form.ds_submit
+              form.submit
 
-              destroy_button if account.persisted?
-
-              link_button href: accounts_path, color: :ghost do
-                t(".cancel")
+              link_button href: accounts_path, color: :ghost, block: true do
+                icon(name: :chevron_left, size: "w-5 h-5")
+                text t(".cancel")
               end
             end
           end
-        end
-      end
-
-      def destroy_button
-        link_button href: account_path(account),
-          color: :error,
-          data: {turbo_method: :delete, turbo_confirm: t(".destroy_confirm")} do
-          t(".destroy")
         end
       end
     end

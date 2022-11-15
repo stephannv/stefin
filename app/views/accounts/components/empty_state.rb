@@ -5,7 +5,7 @@ module Accounts
 
       def template
         empty_state do |empty_state|
-          empty_state.image(src: helpers.image_url("accounts-empty-state.webp"))
+          empty_state.image(src: helpers.image_url("accounts-empty-state.svg"))
 
           empty_state.title { t(".title") }
 
@@ -13,7 +13,8 @@ module Accounts
 
           empty_state.actions do
             link_button href: new_account_path, color: :primary do
-              t(".new_account")
+              icon(name: :add, size: "w-6 h-6")
+              text t(".new_account")
             end
           end
         end

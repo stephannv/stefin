@@ -9,12 +9,12 @@ RSpec.describe "Account destruction", type: :system do
 
       click_link href: edit_account_path(account)
 
-      accept_confirm(I18n.t("accounts.components.form.destroy_confirm")) do
-        click_link I18n.t("accounts.components.form.destroy")
+      accept_confirm(I18n.t("accounts.pages.edit.destroy_confirm")) do
+        click_link I18n.t("accounts.pages.edit.destroy")
       end
 
       expect(page).to have_css("h1", text: I18n.t("accounts.pages.index.page_title"))
-      expect(page).to have_css(".toast .alert.alert-success", text: I18n.t("accounts.destroy.success"))
+      expect(page).to have_css(".toast .alert.border-success", text: I18n.t("accounts.destroy.success"))
       expect(page).not_to have_css(".card-title", text: "My account")
     end
   end
@@ -30,12 +30,12 @@ RSpec.describe "Account destruction", type: :system do
       allow(Accounts::Destroy).to receive(:result)
         .and_return(ServiceActor::Result.new(failure?: true, account: account))
 
-      accept_confirm(I18n.t("accounts.components.form.destroy_confirm")) do
-        click_link I18n.t("accounts.components.form.destroy")
+      accept_confirm(I18n.t("accounts.pages.edit.destroy_confirm")) do
+        click_link I18n.t("accounts.pages.edit.destroy")
       end
 
       expect(page).to have_css("h1", text: I18n.t("accounts.pages.edit.page_title"))
-      expect(page).to have_css(".toast .alert.alert-error", text: I18n.t("accounts.destroy.error"))
+      expect(page).to have_css(".toast .alert.border-error", text: I18n.t("accounts.destroy.error"))
     end
   end
 end

@@ -19,7 +19,7 @@ gem "jsbundling-rails", "1.0.3"
 gem "pg", "1.4.4"
 
 # Phlex is a framework for building fast, reusable, testable views in pure Ruby. [https://github.com/joeldrapper/phlex]
-gem "phlex", "0.4.0"
+gem "phlex", github: "joeldrapper/phlex"
 
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem "propshaft", "0.6.4"

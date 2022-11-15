@@ -10,12 +10,12 @@ RSpec.describe "Category creation", type: :system do
       expect(page).to have_css("h1", text: I18n.t("categories.pages.new.page_title"))
 
       fill_in I18n.t("activerecord.attributes.category.title"), with: "My category"
-      find("label[for='category_color_#{Ds::Forms::ColorPicker::PALETTE.sample}'").click
+      find("label[for='category_color_#{Ds::ColorPicker::PALETTE.sample}'").click
 
       click_button I18n.t("helpers.submit.create", model: I18n.t("activerecord.models.category"))
 
       expect(page).to have_css("h1", text: I18n.t("categories.pages.index.page_title"))
-      expect(page).to have_css(".toast .alert.alert-success", text: I18n.t("categories.create.success"))
+      expect(page).to have_css(".toast .alert.border-success", text: I18n.t("categories.create.success"))
     end
   end
 

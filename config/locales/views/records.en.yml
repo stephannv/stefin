@@ -2,12 +2,17 @@ en:
   records:
     pages:
       index:
-        page_title: records
-        new_record: new record
+        list: List
+        page_title: Records
+        new_record: New record
 
       new:
-        page_title: new record
+        new: New
+        page_title: New record
 
     components:
+      breadcrumbs:
+        records: Records
+
       form:
-        cancel: cancel
+        cancel: Cancel

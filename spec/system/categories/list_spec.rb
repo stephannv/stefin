@@ -18,8 +18,8 @@ RSpec.describe "Categories list", type: :system do
 
       visit categories_path
 
-      expect(page).to have_css("h1", text: "Category A")
-      expect(page).to have_css("h1", text: "Category B")
+      expect(page).to have_css("div", text: "Category A")
+      expect(page).to have_css("div", text: "Category B")
     end
   end
 

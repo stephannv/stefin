@@ -8,6 +8,33 @@ module.exports = {
     './app/views/**/*.rb'
   ],
   plugins: [require("daisyui")],
+  daisyui: {
+    themes: [
+      {
+        light: {
+          ...require("daisyui/src/colors/themes")["[data-theme=light]"],
+          "base-100": "#ffffff",
+          "base-200": "#f8f8f9",
+          "base-300": "#515a6e",
+          "base-content": "#17233d",
+
+          "primary": "#2d8cf0",
+          "primary-focus": "#5cadff",
+
+          "success": "#19be6b",
+          "info": "#2db7f5",
+          "warning": "#ff9900",
+          "error": "#ed4014",
+          "error-content": "#ffffff",
+
+          "--rounded-btn": "0.25rem",
+          "--rounded-box": "0.50rem",
+
+          "--btn-text-case": "none"
+        }
+      }
+    ]
+  },
   theme: {
     extend: {
       keyframes: {
@@ -35,46 +62,4 @@ module.exports = {
       }
     }
   },
-  daisyui: {
-    themes: [
-      {
-        stefin: {
-          "base-100": "#ffffff",
-          "base-200": "#f0eee2",
-          "base-300": "#d9d0bb",
-          "base-content": "#000000",
-
-          "neutral": "#ffffff",
-          "neutral-content": "#000000",
-
-          "primary": "#000000",
-          "primary-focus": "#191919",
-          "primary-content": "#ffffff",
-
-          "accent": "#ff5c95",
-          "accent-focus": "#e55286",
-          "accent-content": "#000000",
-
-          "secondary": "#00c4ff",
-
-          "info": "#00c4ff",
-          "info-content": "#000000",
-
-          "success": "#009900",
-          "success-content": "#ffffff",
-
-          "warning": "#ffc700",
-          "warning-content": "#000000",
-
-          "error": "#ff0000",
-          "error-content": "#ffffff",
-
-          "--btn-text-case": "lowercase",
-
-          "--rounded-box": "0.5rem",
-          "--rounded-btn": "0.25rem"
-        }
-      }
-    ]
-  }
 }
