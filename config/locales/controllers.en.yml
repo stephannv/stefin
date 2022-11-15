@@ -24,3 +24,10 @@ en:
   records:
     create:
       success: Your record has been created
+
+    update:
+      success: Your record has been updated
+
+    destroy:
+      success: Your record has been destroyed
+      error: Your record could not be destroyed

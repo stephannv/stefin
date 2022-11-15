@@ -10,6 +10,12 @@ en:
         new: New
         page_title: New record
 
+      edit:
+        edit: Edit
+        page_title: Edit record
+        destroy: Delete
+        destroy_confirm: Are you sure?
+
     components:
       breadcrumbs:
         records: Records
