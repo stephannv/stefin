@@ -62,6 +62,8 @@ class RecordsController < ApplicationController
   end
 
   def record_params
-    params.require(:record).permit(:group, :account_id, :category_id, :amount_cents, :occurred_on, :description).to_h
+    params.require(:record).permit(
+      :group, :account_id, :category_id, :amount_cents, :occurred_on, :payee, :description
+    ).to_h
   end
 end

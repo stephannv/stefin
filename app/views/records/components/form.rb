@@ -54,6 +54,11 @@ module Records
             end
 
             input_wrapper do
+              form.label(:payee)
+              form.text_field(:payee)
+            end
+
+            input_wrapper do
               form.label(:description)
               form.text_field(:description)
             end
