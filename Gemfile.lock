@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/joeldrapper/phlex.git
+  revision: 7e65276ea7afcb73b0cde939cd818eb352dd18b0
+  specs:
+    phlex (0.4.0)
+      syntax_tree (~> 3.6)
+      zeitwerk (~> 2.6)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -138,10 +146,7 @@ GEM
     parser (3.1.2.1)
       ast (~> 2.4.1)
     pg (1.4.4)
-    phlex (0.4.0)
-      syntax_tree (~> 3.6)
-      zeitwerk (~> 2.6)
-    prettier_print (1.0.2)
+    prettier_print (1.1.0)
     propshaft (0.6.4)
       actionpack (>= 7.0.0)
       activesupport (>= 7.0.0)
@@ -282,7 +287,7 @@ DEPENDENCIES
   factory_bot_rails (= 6.2.0)
   jsbundling-rails (= 1.0.3)
   pg (= 1.4.4)
-  phlex (= 0.4.0)
+  phlex!
   propshaft (= 0.6.4)
   puma (= 5.6.5)
   rack-mini-profiler (= 3.0.0)

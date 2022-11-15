@@ -10,18 +10,12 @@ module Accounts
       attr_reader :account
 
       def template
-        card(compact: true) do |card|
-          card.title do
-            div class: "flex items-center justify-between w-full p-4" do
-              div class: "flex gap-2 items-center" do
+        a href: edit_account_path(account) do
+          card(hover: true) do |card|
+            card.body(padding: "px-4 py-6") do
+              div class: "flex gap-4 items-center" do
                 color_icon value: account.color
                 text account.title
-              end
-
-              div do
-                link_button(color: :ghost, square: true, href: edit_account_path(account), title: t(".edit")) do
-                  icon(name: :pencil_square)
-                end
               end
             end
           end

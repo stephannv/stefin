@@ -12,13 +12,13 @@ RSpec.describe "Account update", type: :system do
       expect(page).to have_css("h1", text: I18n.t("accounts.pages.edit.page_title"))
 
       fill_in I18n.t("activerecord.attributes.account.title"), with: "Updated title"
-      find("label[for='account_color_#{Ds::Forms::ColorPicker::PALETTE.sample}'").click
+      find("label[for='account_color_#{Ds::ColorPicker::PALETTE.sample}'").click
 
       click_button I18n.t("helpers.submit.update", model: I18n.t("activerecord.models.account"))
 
       expect(page).to have_css("h1", text: I18n.t("accounts.pages.index.page_title"))
-      expect(page).to have_css(".toast .alert.alert-success", text: I18n.t("accounts.update.success"))
-      expect(page).to have_css("h1", text: "Updated title")
+      expect(page).to have_css(".toast .alert.border-success", text: I18n.t("accounts.update.success"))
+      expect(page).to have_css("div", text: "Updated title")
     end
   end
 

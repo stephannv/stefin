@@ -2,25 +2,31 @@ en:
   accounts:
     pages:
       index:
-        page_title: accounts
-        new_account: new account
+        list: List
+        page_title: Accounts
+        new_account: New account
 
       new:
-        page_title: new account
+        new: New
+        page_title: New account
 
       edit:
-        page_title: edit account
+        edit: Edit
+        page_title: Edit account
+        destroy: Delete
+        destroy_confirm: All transactions from this account will be deleted. Are you sure?
 
     components:
+      breadcrumbs:
+        accounts: Accounts
+
       card:
         edit: Edit
 
       empty_state:
         title: Create your account!
         description: After creating an account, you will be able to start recording transactions.
-        new_account: new account
+        new_account: New account
 
       form:
-        destroy: Delete account
-        destroy_confirm: All transactions from this account will be deleted. Are you sure?
         cancel: Cancel

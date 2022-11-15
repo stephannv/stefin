@@ -22,7 +22,7 @@ RSpec.describe "Record creation", type: :system do
       click_button I18n.t("helpers.submit.create", model: I18n.t("activerecord.models.record"))
 
       expect(page).to have_css("h1", text: I18n.t("records.pages.index.page_title"))
-      expect(page).to have_css(".toast .alert.alert-success", text: I18n.t("records.create.success"))
+      expect(page).to have_css(".toast .alert.border-success", text: I18n.t("records.create.success"))
     end
   end
 

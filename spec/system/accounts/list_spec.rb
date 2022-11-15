@@ -18,8 +18,8 @@ RSpec.describe "Accounts list", type: :system do
 
       visit accounts_path
 
-      expect(page).to have_css("h1", text: "Account A")
-      expect(page).to have_css("h1", text: "Account B")
+      expect(page).to have_css("div", text: "Account A")
+      expect(page).to have_css("div", text: "Account B")
     end
   end
 

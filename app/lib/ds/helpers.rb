@@ -1,20 +1,22 @@
 module Ds
   module Helpers
     COMPONENTS = {
-      card: Ds::Structures::Card,
-      color_icon: Ds::Visuals::ColorIcon,
-      color_picker: Ds::Forms::ColorPicker,
-      empty_state: Ds::Feedback::EmptyState,
-      form_actions: Ds::Forms::Actions,
-      icon: Ds::Visuals::Icon,
-      input_error_message: Ds::Forms::InputErrorMessage,
-      input_wrapper: Ds::Forms::InputWrapper,
-      link_button: Ds::Actions::LinkButton,
-      page: Ds::Layouts::Page,
-      radio_button: Ds::Forms::RadioButton,
-      stack_layout: Ds::Layouts::Stack,
-      toast: Ds::Feedback::Toast,
-      two_column_layout: Ds::Layouts::TwoColumn
+      breadcrumbs: Ds::Breadcrumbs,
+      breadcrumb_item: Ds::BreadcrumbItem,
+      card: Ds::Card,
+      color_icon: Ds::ColorIcon,
+      color_picker: Ds::ColorPicker,
+      empty_state: Ds::EmptyState,
+      form_actions: Ds::FormActions,
+      icon: Ds::Icon,
+      input_error: Ds::InputError,
+      input_wrapper: Ds::InputWrapper,
+      link_button: Ds::LinkButton,
+      page: Ds::Page,
+      radio: Ds::Radio,
+      stack_layout: Ds::StackLayout,
+      toast: Ds::Toast,
+      two_column_layout: Ds::TwoColumnLayout
     }
 
     COMPONENTS.each do |name, component_class|

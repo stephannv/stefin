@@ -2,25 +2,31 @@ en:
   categories:
     pages:
       index:
-        page_title: categories
-        new_category: new category
+        list: List
+        page_title: Categories
+        new_category: New category
 
       new:
-        page_title: new category
+        new: New
+        page_title: New category
 
       edit:
-        page_title: edit category
+        edit: Edit
+        page_title: Edit category
+        destroy: Delete
+        destroy_confirm: Are you sure?
 
     components:
+      breadcrumbs:
+        categories: Categories
+
       card:
-        edit: edit
+        edit: Edit
 
       empty_state:
         title: Create your category!
         description: Categories identifies the context or purpose of a account transaction.
-        new_category: new category
+        new_category: New category
 
       form:
-        destroy: delete category
-        destroy_confirm: Are you sure?
-        cancel: cancel
+        cancel: Cancel

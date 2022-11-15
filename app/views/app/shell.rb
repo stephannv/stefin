@@ -31,7 +31,7 @@ module App
     end
 
     def sidebar
-      div class: "drawer-side bg-base-100 shadow" do
+      div class: "drawer-side bg-base-100" do
         label for: "drawer-toggle", class: "drawer-overlay"
 
         render App::Sidebar.new
