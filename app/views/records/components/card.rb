@@ -12,7 +12,7 @@ module Records
       attr_reader :record, :account, :category
 
       def template
-        a href: "#" do
+        a href: edit_record_path(record) do
           card(hover: true) do |card|
             card.body do
               div class: "grid grid-cols-12 gap-4 items-center" do
