@@ -1,4 +1,6 @@
 class Record < ApplicationRecord
+  monetize :amount
+
   has_enumeration_for :group, with: RecordGroups, create_helpers: true, required: true
 
   belongs_to :account

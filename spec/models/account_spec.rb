@@ -1,6 +1,13 @@
 require "rails_helper"
 
 RSpec.describe Account, type: :model do
+  describe "monetization" do
+    it "monetizes balance attributes" do
+      account = described_class.new(balance_cents: 10, balance_currency: "CAD")
+      expect(account.balance).to eq Money.new(10, "CAD")
+    end
+  end
+
   describe "validations" do
     it { is_expected.to validate_presence_of(:title) }
     it { is_expected.to validate_presence_of(:balance_cents) }

@@ -15,6 +15,9 @@ gem "enumerate_it", "3.2.4"
 # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
 gem "jsbundling-rails", "1.0.3"
 
+# A Ruby Library for dealing with money and currency conversion. [https://github.com/RubyMoney/money]
+gem "money", "6.16.0"
+
 # Use postgresql as the database for Active Record
 gem "pg", "1.4.4"
 

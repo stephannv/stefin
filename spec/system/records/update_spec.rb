@@ -17,7 +17,7 @@ RSpec.describe "Record update", type: :system do
 
       expect(page).to have_css("h1", text: I18n.t("records.pages.index.page_title"))
       expect(page).to have_css(".toast .alert.border-success", text: I18n.t("records.update.success"))
-      expect(page).to have_css("div", text: "3000")
+      expect(page).to have_css("div", text: "R$30,00")
     end
   end
 
