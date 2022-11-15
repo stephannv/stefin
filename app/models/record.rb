@@ -11,5 +11,6 @@ class Record < ApplicationRecord
 
   validates :amount_cents, numericality: {greater_than: 0}
 
+  validates :payee, length: {maximum: 30}
   validates :description, length: {maximum: 50}
 end

@@ -54,8 +54,9 @@ module Records
 
       def description_section
         div class: "font-light text-sm truncate" do
-          "Payee"
+          record.payee
         end
+
         div class: "font-extralight text-xs truncate" do
           record.description
         end

@@ -9,6 +9,7 @@ RSpec.describe Record, type: :model do
 
     it { is_expected.to validate_numericality_of(:amount_cents).is_greater_than(0) }
 
+    it { is_expected.to validate_length_of(:payee).is_at_most(30) }
     it { is_expected.to validate_length_of(:description).is_at_most(50) }
   end
 end

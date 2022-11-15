@@ -9,6 +9,7 @@ FactoryBot.define do
     amount_cents { 1000 }
     amount_currency { "BRL" }
     occurred_on { "2022-11-01" }
+    payee { "Someone" }
     description { "Some expense" }
   end
 end

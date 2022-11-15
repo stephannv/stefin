@@ -17,6 +17,7 @@ RSpec.describe "Record creation", type: :system do
       select category.title, from: "record_category_id"
       fill_in I18n.t("activerecord.attributes.record.amount_cents"), with: "2000"
       fill_in I18n.t("activerecord.attributes.record.occurred_on"), with: "2020-01-01"
+      fill_in I18n.t("activerecord.attributes.record.payee"), with: "Some Payee"
       fill_in I18n.t("activerecord.attributes.record.description"), with: "My description"
 
       click_button I18n.t("helpers.submit.create", model: I18n.t("activerecord.models.record"))

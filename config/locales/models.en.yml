@@ -23,4 +23,5 @@ en:
         amount_cents: Amount
         amount_currency: Amount currency
         occurred_on: Date
+        payee: Payee
         description: Description

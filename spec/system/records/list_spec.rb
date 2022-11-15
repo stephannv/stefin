@@ -19,6 +19,7 @@ RSpec.describe "Records list", type: :system do
         account: account,
         category: category,
         amount_cents: 1999,
+        payee: "My payee",
         description: "My desc")
 
       another_account = create(:account, title: "Another Account", color: "#ff00ff")
@@ -27,6 +28,7 @@ RSpec.describe "Records list", type: :system do
         account: another_account,
         category: another_category,
         amount_cents: 3549,
+        payee: "Another payee",
         description: "Another desc")
 
       visit records_path
@@ -35,7 +37,7 @@ RSpec.describe "Records list", type: :system do
       expect(page).to have_css("div", text: "My Category")
       expect(page).to have_css("div", style: "background-color: #ff0000")
       expect(page).to have_css("div", text: "My Account")
-      expect(page).to have_css("div", text: "Payee")
+      expect(page).to have_css("div", text: "My payee")
       expect(page).to have_css("div", text: "My desc")
       expect(page).to have_css("span.text-error", text: "-1999")
 
@@ -43,7 +45,7 @@ RSpec.describe "Records list", type: :system do
       expect(page).to have_css("div", text: "Another Category")
       expect(page).to have_css("div", style: "background-color: #ff00ff")
       expect(page).to have_css("div", text: "Another Account")
-      expect(page).to have_css("div", text: "Payee")
+      expect(page).to have_css("div", text: "Another payee")
       expect(page).to have_css("div", text: "Another desc")
       expect(page).to have_css("span.text-success", text: "+3549")
     end
