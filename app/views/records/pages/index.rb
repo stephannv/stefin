@@ -26,7 +26,7 @@ module Records
                 if records.empty?
                   render Records::Components::EmptyState.new
                 else
-                  record_list
+                  render Records::Components::List.new(records: records)
                 end
               end
             end
@@ -48,14 +48,6 @@ module Records
         link_button color: :primary, size: :sm, href: new_record_path do
           icon(name: :add, class: "w-4 h-4")
           text t(".new_record")
-        end
-      end
-
-      def record_list
-        div class: "flex flex-col gap-2" do
-          records.each do |record|
-            render Records::Components::Card.new(record: record)
-          end
         end
       end
     end
