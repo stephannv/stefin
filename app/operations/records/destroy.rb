@@ -7,7 +7,12 @@ module Records
     def call
       self.record = Record.find(id)
 
-      fail!(error: :cannot_destroy) unless record.destroy
+      ActiveRecord::Base.transaction do
+        record.destroy!
+        Accounts::UpdateBalance.call(id: record.account_id)
+      rescue
+        fail!(error: :cannot_destroy)
+      end
     end
   end
 end
