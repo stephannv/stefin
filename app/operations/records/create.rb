@@ -6,7 +6,13 @@ module Records
 
     def call
       self.record = Record.new(attributes)
-      fail!(error: :invalid_record) unless record.save
+
+      ActiveRecord::Base.transaction do
+        record.save!
+        Accounts::UpdateBalance.call(id: record.account_id)
+      rescue
+        fail!(error: :invalid_record)
+      end
     end
   end
 end

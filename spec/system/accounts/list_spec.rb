@@ -13,13 +13,15 @@ RSpec.describe "Accounts list", type: :system do
     end
 
     it "lists accounts" do
-      create(:account, title: "Account A")
-      create(:account, title: "Account B")
+      create(:account, title: "Account A", balance_cents: 3000)
+      create(:account, title: "Account B", balance_cents: -5000)
 
       visit accounts_path
 
       expect(page).to have_css("div", text: "Account A")
+      expect(page).to have_css("div", text: "R$30,00")
       expect(page).to have_css("div", text: "Account B")
+      expect(page).to have_css("div", text: "-R$50,00")
     end
   end
 
