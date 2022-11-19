@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_19_135323) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_19_212442) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -22,7 +22,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_19_135323) do
     t.string "color", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.uuid "user_id", null: false
     t.index ["title"], name: "index_accounts_on_title", unique: true
+    t.index ["user_id"], name: "index_accounts_on_user_id"
   end
 
   create_table "categories", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -30,7 +32,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_19_135323) do
     t.string "color", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.uuid "user_id", null: false
     t.index ["title"], name: "index_categories_on_title", unique: true
+    t.index ["user_id"], name: "index_categories_on_user_id"
   end
 
   create_table "records", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -60,6 +64,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_19_135323) do
     t.index ["remember_token"], name: "index_users_on_remember_token", unique: true
   end
 
+  add_foreign_key "accounts", "users"
+  add_foreign_key "categories", "users"
   add_foreign_key "records", "accounts"
   add_foreign_key "records", "categories"
 end

@@ -49,6 +49,6 @@ class CategoriesController < ApplicationController
   private
 
   def category_params
-    params.require(:category).permit(:title, :color).to_h
+    params.require(:category).permit(:title, :color).to_h.merge(user_id: current_user.id)
   end
 end
