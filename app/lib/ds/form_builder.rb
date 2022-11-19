@@ -21,6 +21,18 @@ module Ds
       end
     end
 
+    def email_field(attribute, **options)
+      input_with_error_message attribute do
+        super(attribute, options.reverse_merge(type: "email", class: input_classes(attribute)))
+      end
+    end
+
+    def password_field(attribute, **options)
+      input_with_error_message attribute do
+        super(attribute, options.reverse_merge(type: "password", class: input_classes(attribute)))
+      end
+    end
+
     def money_field(attribute, **options)
       text_field(attribute, **options.merge(inputmode: "numeric", data: {controller: "money-field"}))
     end
@@ -54,14 +66,14 @@ module Ds
     end
 
     def errors(attribute)
-      input_error { errors_for(attribute) } if object.errors.key?(attribute)
+      input_error { errors_for(attribute) } if has_error?(attribute)
     end
 
-    def submit(value = nil, **options)
+    def submit(value = nil, icon: :save, **options)
       value ||= submit_default_value
       template.button_tag(value, options.reverse_merge(class: "btn btn-primary font-normal flex gap-2")) do
         template.capture do
-          template.concat icon(name: :save, size: "w-5 h-5")
+          template.concat icon(name: icon, size: "w-5 h-5") if icon.present?
           template.concat submit_default_value
         end
       end
@@ -77,15 +89,21 @@ module Ds
     end
 
     def errors_for(attribute)
-      object.errors[attribute].to_sentence if object.errors.key?(attribute)
+      return if object.blank?
+
+      object.errors[attribute].to_sentence if has_error?(attribute)
+    end
+
+    def has_error?(attribute)
+      object&.errors&.key?(attribute)
     end
 
     def input_classes(attribute)
-      [INPUT_BASE_CLASSES, INPUT_ERROR_CLASSES => object.errors.key?(attribute)]
+      [INPUT_BASE_CLASSES, INPUT_ERROR_CLASSES => has_error?(attribute)]
     end
 
     def select_classes(attribute)
-      [SELECT_BASE_CLASSES, SELECT_ERROR_CLASSES => object.errors.key?(attribute)]
+      [SELECT_BASE_CLASSES, SELECT_ERROR_CLASSES => has_error?(attribute)]
     end
   end
 end

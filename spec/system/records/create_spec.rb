@@ -3,10 +3,11 @@ require "rails_helper"
 RSpec.describe "Record creation", type: :system do
   context "with valid info" do
     it "creates a new record" do
+      user = create(:user)
       account = create(:account)
       category = create(:category)
 
-      visit records_path
+      visit records_path(as: user)
 
       click_link I18n.t("records.pages.index.new_record")
 
@@ -29,10 +30,11 @@ RSpec.describe "Record creation", type: :system do
 
   context "with invalid info" do
     it "renders input errors" do
+      user = create(:user)
       create(:account)
       create(:category)
 
-      visit records_path
+      visit records_path(as: user)
 
       click_link I18n.t("records.pages.index.new_record")
 

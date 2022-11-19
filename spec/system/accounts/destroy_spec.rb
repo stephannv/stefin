@@ -3,9 +3,10 @@ require "rails_helper"
 RSpec.describe "Account destruction", type: :system do
   context "when account can be destroyed" do
     it "destroys account" do
+      user = create(:user)
       account = create(:account, title: "My account")
 
-      visit accounts_path
+      visit accounts_path(as: user)
 
       click_link href: edit_account_path(account)
 
@@ -21,9 +22,10 @@ RSpec.describe "Account destruction", type: :system do
 
   context "when account cannot be destroyed" do
     it "shows error message" do
+      user = create(:user)
       account = create(:account, title: "My account")
 
-      visit accounts_path
+      visit accounts_path(as: user)
 
       click_link href: edit_account_path(account)
 

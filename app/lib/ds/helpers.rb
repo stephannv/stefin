@@ -10,6 +10,7 @@ module Ds
       form_actions: Ds::FormActions,
       icon: Ds::Icon,
       input_error: Ds::InputError,
+      input_hint: Ds::InputHint,
       input_wrapper: Ds::InputWrapper,
       link_button: Ds::LinkButton,
       page: Ds::Page,

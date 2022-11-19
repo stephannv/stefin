@@ -6,6 +6,9 @@ ruby "3.1.2"
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", "1.13.0", require: false
 
+# Rails authentication with email & password. [https://github.com/thoughtbot/clearance/]
+gem "clearance", "2.6.1"
+
 # Bundle and process CSS [https://github.com/rails/cssbundling-rails]
 gem "cssbundling-rails", "1.1.1"
 

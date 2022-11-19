@@ -2,6 +2,7 @@ module App
   class Toast < ApplicationView
     def initialize(flash:)
       @type, @message = flash.first
+      @type = sanitize_toast_type(@type)
     end
 
     private
@@ -16,6 +17,17 @@ module App
 
     def render?
       message.present?
+    end
+
+    def sanitize_toast_type(type)
+      case type
+      when "notice"
+        :success
+      when "alert"
+        :error
+      else
+        type
+      end
     end
   end
 end

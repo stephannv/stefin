@@ -3,10 +3,16 @@ module App
     private
 
     def template(&content)
-      ul class: "menu w-80 bg-base-300 text-white" do
-        records_menu_item
-        accounts_menu_item
-        categories_menu_item
+      ul class: "menu w-80 bg-base-300 text-white justify-between" do
+        div do
+          records_menu_item
+          accounts_menu_item
+          categories_menu_item
+        end
+
+        div do
+          sign_out_menu_item
+        end
       end
     end
 
@@ -31,9 +37,16 @@ module App
       end
     end
 
-    def menu_item(url:, active:, &content)
+    def sign_out_menu_item
+      menu_item(url: sign_out_path, active: false, data: {turbo_method: :delete}) do
+        icon(name: :logout)
+        span { t(".sign_out") }
+      end
+    end
+
+    def menu_item(url:, active:, **html_options, &content)
       li class: "hover-bordered" do
-        a href: url, class: active ? "active" : nil do
+        a href: url, class: (active ? "active" : nil), **html_options do
           yield_content(&content)
         end
       end

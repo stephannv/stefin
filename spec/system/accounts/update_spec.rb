@@ -3,9 +3,11 @@ require "rails_helper"
 RSpec.describe "Account update", type: :system do
   context "with valid info" do
     it "update account info" do
+      user = create(:user)
+
       account = create(:account, title: "My account")
 
-      visit accounts_path
+      visit accounts_path(as: user)
 
       click_link href: edit_account_path(account)
 
@@ -24,9 +26,10 @@ RSpec.describe "Account update", type: :system do
 
   context "with invalid info" do
     it "renders input errors" do
+      user = create(:user)
       account = create(:account, title: "My account")
 
-      visit accounts_path
+      visit accounts_path(as: user)
 
       click_link href: edit_account_path(account)
 

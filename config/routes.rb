@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "accounts#index"
+  root "records#index"
 
   resources :accounts
   resources :categories

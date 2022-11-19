@@ -3,4 +3,5 @@ en:
     sidebar:
       accounts: Accounts
       categories: Categories
+      sign_out: Sign out
       records: Records
