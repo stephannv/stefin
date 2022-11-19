@@ -1,7 +1,8 @@
 module App
   class Shell < ApplicationView
-    def initialize(title: "")
+    def initialize(title: "", render_sidebar: true)
       @title = title
+      @render_sidebar = render_sidebar
     end
 
     private
@@ -20,7 +21,7 @@ module App
           end
         end
 
-        sidebar
+        sidebar if render_sidebar?
       end
     end
 
@@ -43,5 +44,7 @@ module App
         yield_content(&content)
       end
     end
+
+    def render_sidebar? = @render_sidebar
   end
 end

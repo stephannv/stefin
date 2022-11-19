@@ -1,6 +1,7 @@
 module Ds
   class Page < Ds::Base
     SIZE_CLASSES = {
+      xs: "w-full md:w-3/4 lg:w-1/2 xl:w-1/3",
       base: "w-full md:w-3/4 lg:w-2/3 xl:w-1/2",
       lg: "w-full md:w-5/6 lg:w-4/5 xl:w-3/4 2xl:w-2/3"
     }.freeze

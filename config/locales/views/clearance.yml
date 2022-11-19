@@ -1,0 +1,31 @@
+en:
+  passwords:
+    pages:
+      new:
+        page_title: Reset your password
+        email_hint: To be emailed a link to reset your password, please enter your email address.
+        back: Back
+
+      edit:
+        page_title: Change your password
+        password_hint: Your password has been reset. Choose a new password below.
+
+      create:
+        page_title: Check your inbox
+        email_sent: Email sent
+        description: You will receive an email within the next few minutes. It contains instructions for changing your password.
+
+  sessions:
+    pages:
+      new:
+        navbar_title: Sign in
+        page_title: Sign in to your account
+        sign_up: Don't have an account? Join us
+        forgot_password: Forgot your password?
+
+  users:
+    pages:
+      new:
+        navbar_title: Join us!
+        page_title: Register
+        sign_in: Already have an account? Sign in

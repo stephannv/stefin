@@ -3,9 +3,10 @@ require "rails_helper"
 RSpec.describe "Record destruction", type: :system do
   context "when record can be destroyed" do
     it "destroys record" do
+      user = create(:user)
       record = create(:record, amount_cents: 9000)
 
-      visit records_path
+      visit records_path(as: user)
 
       click_link href: edit_record_path(record)
 
@@ -21,9 +22,10 @@ RSpec.describe "Record destruction", type: :system do
 
   context "when record cannot be destroyed" do
     it "shows error message" do
+      user = create(:user)
       record = create(:record, amount_cents: 9000)
 
-      visit records_path
+      visit records_path(as: user)
 
       click_link href: edit_record_path(record)
 

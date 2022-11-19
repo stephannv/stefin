@@ -3,9 +3,10 @@ require "rails_helper"
 RSpec.describe "Record update", type: :system do
   context "with valid info" do
     it "update record info" do
+      user = create(:user)
       record = create(:record, amount_cents: 2000)
 
-      visit records_path
+      visit records_path(as: user)
 
       click_link href: edit_record_path(record)
 
@@ -23,9 +24,10 @@ RSpec.describe "Record update", type: :system do
 
   context "with invalid info" do
     it "renders input errors" do
+      user = create(:user)
       record = create(:record, amount_cents: 2000)
 
-      visit records_path
+      visit records_path(as: user)
 
       click_link href: edit_record_path(record)
 

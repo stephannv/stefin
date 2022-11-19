@@ -3,7 +3,9 @@ require "rails_helper"
 RSpec.describe "Account creation", type: :system do
   context "with valid info" do
     it "creates a new account" do
-      visit accounts_path
+      user = create(:user)
+
+      visit accounts_path(as: user)
 
       click_link I18n.t("accounts.components.empty_state.new_account")
 
@@ -21,7 +23,9 @@ RSpec.describe "Account creation", type: :system do
 
   context "with invalid info" do
     it "renders input errors" do
-      visit accounts_path
+      user = create(:user)
+
+      visit accounts_path(as: user)
 
       click_link I18n.t("accounts.components.empty_state.new_account")
 

@@ -3,9 +3,10 @@ require "rails_helper"
 RSpec.describe "Category destruction", type: :system do
   context "when category can be destroyed" do
     it "destroys category" do
+      user = create(:user)
       category = create(:category, title: "My category")
 
-      visit categories_path
+      visit categories_path(as: user)
 
       click_link href: edit_category_path(category)
 
@@ -21,9 +22,10 @@ RSpec.describe "Category destruction", type: :system do
 
   context "when category cannot be destroyed" do
     it "shows error message" do
+      user = create(:user)
       category = create(:category, title: "My category")
 
-      visit categories_path
+      visit categories_path(as: user)
 
       click_link href: edit_category_path(category)
 

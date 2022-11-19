@@ -3,7 +3,9 @@ require "rails_helper"
 RSpec.describe "Category creation", type: :system do
   context "with valid info" do
     it "creates a new category" do
-      visit categories_path
+      user = create(:user)
+
+      visit categories_path(as: user)
 
       click_link I18n.t("categories.components.empty_state.new_category")
 
@@ -21,7 +23,9 @@ RSpec.describe "Category creation", type: :system do
 
   context "with invalid info" do
     it "renders input errors" do
-      visit categories_path
+      user = create(:user)
+
+      visit categories_path(as: user)
 
       click_link I18n.t("categories.components.empty_state.new_category")
 

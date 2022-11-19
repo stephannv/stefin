@@ -3,9 +3,10 @@ require "rails_helper"
 RSpec.describe "Records list", type: :system do
   context "when has records" do
     it "has link to create record" do
+      user = create(:user)
       create(:record)
 
-      visit records_path
+      visit records_path(as: user)
 
       expect(page).to have_css("h1", text: I18n.t("records.pages.index.page_title"))
 
@@ -13,6 +14,7 @@ RSpec.describe "Records list", type: :system do
     end
 
     it "lists records" do
+      user = create(:user)
       account = create(:account, title: "My Account", color: "#ff0000")
       category = create(:category, title: "My Category", color: "#0000ff")
       create(:record, :expense,
@@ -31,7 +33,7 @@ RSpec.describe "Records list", type: :system do
         payee: "Another payee",
         description: "Another desc")
 
-      visit records_path
+      visit records_path(as: user)
 
       expect(page).to have_css("div", style: "background-color: #0000ff")
       expect(page).to have_css("div", text: "My Category")
@@ -53,7 +55,9 @@ RSpec.describe "Records list", type: :system do
 
   context "when has no records" do
     it "has link to create record" do
-      visit records_path
+      user = create(:user)
+
+      visit records_path(as: user)
 
       expect(page).to have_css("h1", text: I18n.t("records.pages.index.page_title"))
 
@@ -61,7 +65,9 @@ RSpec.describe "Records list", type: :system do
     end
 
     it "shows empty state" do
-      visit records_path
+      user = create(:user)
+
+      visit records_path(as: user)
 
       expect(page).to have_css(".text-xl", text: I18n.t("records.components.empty_state.title"))
       expect(page).to have_content(I18n.t("records.components.empty_state.description"))
