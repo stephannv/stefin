@@ -1,7 +1,7 @@
 Clearance.configure do |config|
   config.mailer_sender = "TODO@TODO.com"
   config.rotate_csrf_on_sign_in = true
-  config.secure_cookie = true unless Rails.env.test?
+  config.secure_cookie = Rails.env.production?
   config.signed_cookie = true
 end
 

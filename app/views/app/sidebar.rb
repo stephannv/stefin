@@ -3,16 +3,26 @@ module App
     private
 
     def template(&content)
-      ul class: "menu w-80 bg-base-300 text-white justify-between" do
+      ul class: "menu w-80 bg-base-300 text-white  justify-between" do
         div do
-          records_menu_item
-          accounts_menu_item
-          categories_menu_item
+          logo
+
+          div do
+            records_menu_item
+            accounts_menu_item
+            categories_menu_item
+          end
         end
 
         div do
           sign_out_menu_item
         end
+      end
+    end
+
+    def logo
+      div class: "w-80 bg-base-300 text-white flex justify-center py-8" do
+        img src: helpers.image_path("dark-logo.svg"), class: "w-1/2 justify-self-center"
       end
     end
 
