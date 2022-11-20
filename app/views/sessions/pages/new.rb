@@ -9,6 +9,10 @@ module Sessions
         render App::Base.new do
           render App::Shell.new(title: t(".navbar_title"), render_sidebar: false) do
             page(size: :xs) do |page|
+              div class: "w-full flex justify-center py-6" do
+                img src: helpers.image_path("light-logo.svg"), class: "w-1/3"
+              end
+
               page.header do
                 page.title { t(".page_title") }
               end
@@ -26,7 +30,7 @@ module Sessions
       end
 
       def sign_in_form
-        form_with(scope: :session, url: session_path, class: "w-full") do |form|
+        form_with(scope: :session, url: session_path, class: "w-full", data: {turbo: false}) do |form|
           stack_layout do
             input_wrapper do
               form.label :email
