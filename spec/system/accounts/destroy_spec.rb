@@ -4,7 +4,7 @@ RSpec.describe "Account destruction", type: :system do
   context "when account can be destroyed" do
     it "destroys account" do
       user = create(:user)
-      account = create(:account, title: "My account")
+      account = create(:account, user: user, title: "My account")
 
       visit accounts_path(as: user)
 
@@ -23,7 +23,7 @@ RSpec.describe "Account destruction", type: :system do
   context "when account cannot be destroyed" do
     it "shows error message" do
       user = create(:user)
-      account = create(:account, title: "My account")
+      account = create(:account, user: user, title: "My account")
 
       visit accounts_path(as: user)
 

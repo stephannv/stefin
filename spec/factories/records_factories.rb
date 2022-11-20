@@ -2,8 +2,12 @@ FactoryBot.define do
   factory :record do
     traits_for_enum :group, RecordGroups.to_h
 
-    association :account
-    association :category
+    transient do
+      user { create(:user) }
+    end
+
+    account { association :account, user: user }
+    category { association :category, user: user }
 
     group { RecordGroups::EXPENSE }
     amount_cents { 1000 }

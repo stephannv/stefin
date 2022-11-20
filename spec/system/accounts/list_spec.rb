@@ -4,7 +4,7 @@ RSpec.describe "Accounts list", type: :system do
   context "when has accounts" do
     it "has link to create account" do
       user = create(:user)
-      create(:account, title: "Account A")
+      create(:account, user: user, title: "Account A")
 
       visit accounts_path(as: user)
 
@@ -15,8 +15,8 @@ RSpec.describe "Accounts list", type: :system do
 
     it "lists accounts" do
       user = create(:user)
-      create(:account, title: "Account A", balance_cents: 3000)
-      create(:account, title: "Account B", balance_cents: -5000)
+      create(:account, user: user, title: "Account A", balance_cents: 3000)
+      create(:account, user: user, title: "Account B", balance_cents: -5000)
 
       visit accounts_path(as: user)
 

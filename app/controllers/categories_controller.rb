@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   def index
-    result = Categories::List.result
+    result = Categories::List.result(scope: categories_scope)
 
     render Categories::Pages::Index.new(categories: result.categories)
   end
@@ -10,9 +10,9 @@ class CategoriesController < ApplicationController
   end
 
   def edit
-    result = Categories::Find.result(id: params[:id])
+    authorize! category
 
-    render Categories::Pages::Edit.new(category: result.category)
+    render Categories::Pages::Edit.new(category: category)
   end
 
   def create
@@ -21,13 +21,14 @@ class CategoriesController < ApplicationController
     if result.success?
       redirect_to categories_path, success: t(".success")
     else
-      puts "hello"
       render Categories::Pages::New.new(category: result.category), status: :unprocessable_entity
     end
   end
 
   def update
-    result = Categories::Update.result(id: params[:id], attributes: category_params)
+    authorize! category
+
+    result = Categories::Update.result(id: category.id, attributes: category_params)
 
     if result.success?
       redirect_to categories_path, success: t(".success")
@@ -37,7 +38,9 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-    result = Categories::Destroy.result(id: params[:id])
+    authorize! category
+
+    result = Categories::Destroy.result(id: category.id)
 
     if result.success?
       redirect_to categories_path, success: t(".success")
@@ -47,6 +50,14 @@ class CategoriesController < ApplicationController
   end
 
   private
+
+  def categories_scope
+    authorized_scope(Category.all)
+  end
+
+  def category
+    @category ||= Categories::Find.result(id: params[:id]).category
+  end
 
   def category_params
     params.require(:category).permit(:title, :color).to_h.merge(user_id: current_user.id)

@@ -3,6 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.1.2"
 
+# Authorization framework for Ruby and Rails. [https://github.com/palkan/action_policy]
+gem "action_policy", "0.6.3"
+
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", "1.13.0", require: false
 

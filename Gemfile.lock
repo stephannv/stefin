@@ -9,6 +9,8 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
+    action_policy (0.6.3)
+      ruby-next-core (>= 0.14.0)
     actioncable (7.0.4)
       actionpack (= 7.0.4)
       activesupport (= 7.0.4)
@@ -245,6 +247,7 @@ GEM
     rubocop-performance (1.14.3)
       rubocop (>= 1.7.0, < 2.0)
       rubocop-ast (>= 0.4.0)
+    ruby-next-core (0.15.3)
     ruby-progressbar (1.11.0)
     rubyzip (2.3.2)
     selenium-webdriver (4.5.0)
@@ -299,6 +302,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  action_policy (= 0.6.3)
   bootsnap (= 1.13.0)
   capybara (= 3.37.1)
   clearance (= 2.6.1)

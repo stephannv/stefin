@@ -10,4 +10,13 @@ RSpec.describe Categories::List, type: :operation do
 
     expect(result.categories.to_a).to eq [category_1, category_2, category_3]
   end
+
+  it "accepts scope" do
+    old_categories = create_list(:category, 3, created_at: Time.zone.yesterday)
+    create_list(:category, 3, created_at: Time.zone.tomorrow) # new categories
+
+    result = described_class.result(scope: Category.where(created_at: ..Time.zone.today))
+
+    expect(result.categories.to_a).to match_array(old_categories)
+  end
 end

@@ -1,6 +1,6 @@
 class RecordsController < ApplicationController
   def index
-    result = Records::List.result
+    result = Records::List.result(scope: records_scope)
 
     render Records::Pages::Index.new(records: result.records.to_a)
   end
@@ -12,12 +12,14 @@ class RecordsController < ApplicationController
   end
 
   def edit
-    result = Records::Find.result(id: params[:id])
+    authorize! record
 
-    render Records::Pages::Edit.new(record: result.record, accounts: accounts, categories: categories)
+    render Records::Pages::Edit.new(record: record, accounts: accounts, categories: categories)
   end
 
   def create
+    authorize_related_data!
+
     result = Records::Create.result(attributes: record_params)
 
     if result.success?
@@ -30,7 +32,10 @@ class RecordsController < ApplicationController
   end
 
   def update
-    result = Records::Update.result(id: params[:id], attributes: record_params)
+    authorize! record
+    authorize_related_data!
+
+    result = Records::Update.result(id: record.id, attributes: record_params)
 
     if result.success?
       redirect_to records_path, success: t(".success")
@@ -42,7 +47,9 @@ class RecordsController < ApplicationController
   end
 
   def destroy
-    result = Records::Destroy.result(id: params[:id])
+    authorize! record
+
+    result = Records::Destroy.result(id: record.id)
 
     if result.success?
       redirect_to records_path, success: t(".success")
@@ -53,12 +60,27 @@ class RecordsController < ApplicationController
 
   private
 
+  def records_scope
+    authorized_scope(Record.all)
+  end
+
+  def record
+    @record ||= Records::Find.result(id: params[:id]).record
+  end
+
   def accounts
-    Accounts::List.result.accounts.to_a
+    scope = authorized_scope(Account.all, with: AccountPolicy)
+    Accounts::List.result(scope: scope).accounts.to_a
   end
 
   def categories
-    Categories::List.result.categories.to_a
+    scope = authorized_scope(Category.all, with: CategoryPolicy)
+    Categories::List.result(scope: scope).categories.to_a
+  end
+
+  def authorize_related_data!
+    authorize! Accounts::Find.result(id: record_params[:account_id]).account, to: :show?
+    authorize! Categories::Find.result(id: record_params[:category_id]).category, to: :show?
   end
 
   def record_params
