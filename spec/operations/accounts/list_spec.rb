@@ -10,4 +10,13 @@ RSpec.describe Accounts::List, type: :operation do
 
     expect(result.accounts.to_a).to eq [account_1, account_2, account_3]
   end
+
+  it "accepts scope" do
+    old_accounts = create_list(:account, 3, created_at: Time.zone.yesterday)
+    create_list(:account, 3, created_at: Time.zone.tomorrow) # new accounts
+
+    result = described_class.result(scope: Account.where(created_at: ..Time.zone.today))
+
+    expect(result.accounts.to_a).to match_array(old_accounts)
+  end
 end

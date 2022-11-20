@@ -5,7 +5,7 @@ RSpec.describe "Account update", type: :system do
     it "update account info" do
       user = create(:user)
 
-      account = create(:account, title: "My account")
+      account = create(:account, user: user, title: "My account")
 
       visit accounts_path(as: user)
 
@@ -27,7 +27,7 @@ RSpec.describe "Account update", type: :system do
   context "with invalid info" do
     it "renders input errors" do
       user = create(:user)
-      account = create(:account, title: "My account")
+      account = create(:account, user: user, title: "My account")
 
       visit accounts_path(as: user)
 

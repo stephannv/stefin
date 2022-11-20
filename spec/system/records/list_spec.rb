@@ -4,7 +4,7 @@ RSpec.describe "Records list", type: :system do
   context "when has records" do
     it "has link to create record" do
       user = create(:user)
-      create(:record)
+      create(:record, user: user)
 
       visit records_path(as: user)
 
@@ -15,8 +15,8 @@ RSpec.describe "Records list", type: :system do
 
     it "lists records" do
       user = create(:user)
-      account = create(:account, title: "My Account", color: "#ff0000")
-      category = create(:category, title: "My Category", color: "#0000ff")
+      account = create(:account, user: user, title: "My Account", color: "#ff0000")
+      category = create(:category, user: user, title: "My Category", color: "#0000ff")
       create(:record, :expense,
         account: account,
         category: category,
@@ -24,8 +24,8 @@ RSpec.describe "Records list", type: :system do
         payee: "My payee",
         description: "My desc")
 
-      another_account = create(:account, title: "Another Account", color: "#ff00ff")
-      another_category = create(:category, title: "Another Category", color: "#00ff00")
+      another_account = create(:account, user: user, title: "Another Account", color: "#ff00ff")
+      another_category = create(:category, user: user, title: "Another Category", color: "#00ff00")
       create(:record, :income,
         account: another_account,
         category: another_category,

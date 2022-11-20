@@ -4,8 +4,8 @@ RSpec.describe "Record creation", type: :system do
   context "with valid info" do
     it "creates a new record" do
       user = create(:user)
-      account = create(:account)
-      category = create(:category)
+      account = create(:account, user: user)
+      category = create(:category, user: user)
 
       visit records_path(as: user)
 
@@ -31,8 +31,8 @@ RSpec.describe "Record creation", type: :system do
   context "with invalid info" do
     it "renders input errors" do
       user = create(:user)
-      create(:account)
-      create(:category)
+      create(:account, user: user)
+      create(:category, user: user)
 
       visit records_path(as: user)
 

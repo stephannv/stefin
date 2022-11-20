@@ -4,7 +4,7 @@ RSpec.describe "Category update", type: :system do
   context "with valid info" do
     it "update category info" do
       user = create(:user)
-      category = create(:category, title: "My category")
+      category = create(:category, user: user, title: "My category")
 
       visit categories_path(as: user)
 
@@ -26,7 +26,7 @@ RSpec.describe "Category update", type: :system do
   context "with invalid info" do
     it "renders input errors" do
       user = create(:user)
-      category = create(:category, title: "My category")
+      category = create(:category, user: user, title: "My category")
 
       visit categories_path(as: user)
 

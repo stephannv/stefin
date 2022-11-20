@@ -4,7 +4,7 @@ RSpec.describe "Record update", type: :system do
   context "with valid info" do
     it "update record info" do
       user = create(:user)
-      record = create(:record, amount_cents: 2000)
+      record = create(:record, user: user, amount_cents: 2000)
 
       visit records_path(as: user)
 
@@ -25,7 +25,7 @@ RSpec.describe "Record update", type: :system do
   context "with invalid info" do
     it "renders input errors" do
       user = create(:user)
-      record = create(:record, amount_cents: 2000)
+      record = create(:record, user: user, amount_cents: 2000)
 
       visit records_path(as: user)
 

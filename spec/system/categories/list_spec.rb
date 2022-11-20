@@ -4,7 +4,7 @@ RSpec.describe "Categories list", type: :system do
   context "when has categories" do
     it "has link to create category" do
       user = create(:user)
-      create(:category, title: "Category A")
+      create(:category, user: user, title: "Category A")
 
       visit categories_path(as: user)
 
@@ -15,8 +15,8 @@ RSpec.describe "Categories list", type: :system do
 
     it "lists categories" do
       user = create(:user)
-      create(:category, title: "Category A")
-      create(:category, title: "Category B")
+      create(:category, user: user, title: "Category A")
+      create(:category, user: user, title: "Category B")
 
       visit categories_path(as: user)
 
