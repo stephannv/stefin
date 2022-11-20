@@ -10,7 +10,7 @@ class Account < ApplicationRecord
   validates :balance_currency, presence: true
   validates :color, presence: true
 
-  validates :title, uniqueness: true
+  validates :title, uniqueness: {scope: :user_id}
 
   validates :title, length: {maximum: 50}
 

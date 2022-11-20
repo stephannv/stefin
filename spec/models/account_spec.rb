@@ -16,7 +16,7 @@ RSpec.describe Account, type: :model do
 
     it do
       create(:account)
-      is_expected.to validate_uniqueness_of(:title)
+      is_expected.to validate_uniqueness_of(:title).scoped_to(:user_id)
     end
 
     it { is_expected.to validate_length_of(:title).is_at_most(50) }
