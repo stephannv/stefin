@@ -36,6 +36,9 @@ module.exports = {
     ]
   },
   theme: {
+    fontFamily: {
+      sans: ['Fira Sans', 'sans-serif']
+    },
     extend: {
       keyframes: {
         "fade-in-up": {
