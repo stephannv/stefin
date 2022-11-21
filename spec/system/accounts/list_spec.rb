@@ -6,7 +6,9 @@ RSpec.describe "Accounts list", type: :system do
       user = create(:user)
       create(:account, user: user, title: "Account A")
 
-      visit accounts_path(as: user)
+      visit root_path(as: user)
+
+      click_link I18n.t("app.sidebar.accounts")
 
       expect(page).to have_css("h1", text: I18n.t("accounts.pages.index.page_title"))
 
@@ -18,7 +20,9 @@ RSpec.describe "Accounts list", type: :system do
       create(:account, user: user, title: "Account A", balance_cents: 3000)
       create(:account, user: user, title: "Account B", balance_cents: -5000)
 
-      visit accounts_path(as: user)
+      visit root_path(as: user)
+
+      click_link I18n.t("app.sidebar.accounts")
 
       expect(page).to have_css("div", text: "Account A")
       expect(page).to have_css("div", text: "R$30,00")
