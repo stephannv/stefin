@@ -6,7 +6,11 @@ RSpec.describe "Records list", type: :system do
       user = create(:user)
       create(:record, user: user)
 
-      visit records_path(as: user)
+      visit root_path(as: user)
+
+      within "ul.menu" do
+        click_link I18n.t("app.sidebar.records")
+      end
 
       expect(page).to have_css("h1", text: I18n.t("records.pages.index.page_title"))
 
@@ -33,7 +37,11 @@ RSpec.describe "Records list", type: :system do
         payee: "Another payee",
         description: "Another desc")
 
-      visit records_path(as: user)
+      visit root_path(as: user)
+
+      within "ul.menu" do
+        click_link I18n.t("app.sidebar.records")
+      end
 
       expect(page).to have_css("div", style: "background-color: #0000ff")
       expect(page).to have_css("div", text: "My Category")

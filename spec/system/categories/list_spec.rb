@@ -6,7 +6,9 @@ RSpec.describe "Categories list", type: :system do
       user = create(:user)
       create(:category, user: user, title: "Category A")
 
-      visit categories_path(as: user)
+      visit root_path(as: user)
+
+      click_link I18n.t("app.sidebar.categories")
 
       expect(page).to have_css("h1", text: I18n.t("categories.pages.index.page_title"))
 
@@ -18,7 +20,9 @@ RSpec.describe "Categories list", type: :system do
       create(:category, user: user, title: "Category A")
       create(:category, user: user, title: "Category B")
 
-      visit categories_path(as: user)
+      visit root_path(as: user)
+
+      click_link I18n.t("app.sidebar.categories")
 
       expect(page).to have_css("div", text: "Category A")
       expect(page).to have_css("div", text: "Category B")
