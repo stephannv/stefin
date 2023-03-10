@@ -38,7 +38,7 @@ module Categories
         render Categories::Components::Breadcrumbs.new do
           breadcrumb_item do |i|
             i.color_icon(value: category.color)
-            i.text category.title
+            i.plain category.title
           end
 
           breadcrumb_item do
@@ -55,7 +55,7 @@ module Categories
           data: {turbo_method: :delete, turbo_confirm: t(".destroy_confirm")}
         ) do
           icon(name: :trash, size: "w-4 h-4")
-          text t(".destroy")
+          plain t(".destroy")
         end
       end
     end

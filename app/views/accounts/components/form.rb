@@ -29,7 +29,7 @@ module Accounts
 
               link_button href: accounts_path, color: :ghost, block: true do
                 icon(name: :chevron_left, size: "w-5 h-5")
-                text t(".cancel")
+                plain t(".cancel")
               end
             end
           end

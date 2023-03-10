@@ -7,7 +7,7 @@ module Accounts
         breadcrumbs do
           breadcrumb_item(href: accounts_path) do |i|
             i.icon(name: :wallet)
-            i.text t(".accounts")
+            i.plain t(".accounts")
           end
 
           yield_content(&content)

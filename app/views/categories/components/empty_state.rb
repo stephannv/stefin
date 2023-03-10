@@ -14,7 +14,7 @@ module Categories
           empty_state.actions do
             link_button href: new_category_path, color: :primary do
               icon(name: :add, size: "w-6 h-6")
-              text t(".new_category")
+              plain t(".new_category")
             end
           end
         end

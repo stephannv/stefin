@@ -7,7 +7,7 @@ module Categories
         breadcrumbs do
           breadcrumb_item(href: categories_path) do |i|
             i.icon(name: :tag)
-            i.text t(".categories")
+            i.plain t(".categories")
           end
 
           yield_content(&content)

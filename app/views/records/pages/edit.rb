@@ -52,7 +52,7 @@ module Records
           data: {turbo_method: :delete, turbo_confirm: t(".destroy_confirm")}
         ) do
           icon(name: :trash, size: "w-4 h-4")
-          text t(".destroy")
+          plain t(".destroy")
         end
       end
     end

@@ -47,7 +47,7 @@ module Accounts
 
         link_button href: new_account_path, size: :sm, color: :primary do
           icon(name: :add, size: "w-4 h-4")
-          text t(".new_account")
+          plain t(".new_account")
         end
       end
 

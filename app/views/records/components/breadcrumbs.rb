@@ -7,7 +7,7 @@ module Records
         breadcrumbs do
           breadcrumb_item(href: records_path) do |i|
             i.icon(name: :list_check)
-            i.text t(".records")
+            i.plain t(".records")
           end
 
           yield_content(&content)

@@ -33,9 +33,9 @@ module Ds
     def template
       validate_icon!
 
-      svg(**DEFAULT_ATTRIBUTES.merge(classes(size, color_class, extra_classes)), **html_options) do
+      svg(**DEFAULT_ATTRIBUTES.merge(classes(size, color_class, extra_classes)), **html_options) do |s|
         PATH_ATTRIBUTES[name].each do |attributes|
-          path(**attributes)
+          s.path(**attributes)
         end
       end
     end
