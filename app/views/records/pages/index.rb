@@ -47,7 +47,7 @@ module Records
 
         link_button color: :primary, size: :sm, href: new_record_path do
           icon(name: :add, class: "w-4 h-4")
-          text t(".new_record")
+          plain t(".new_record")
         end
       end
     end

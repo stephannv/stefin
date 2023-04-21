@@ -1,5 +1,5 @@
 module Ds
-  class Base < Phlex::View
+  class Base < Phlex::HTML
     include Ds::Helpers
   end
 end

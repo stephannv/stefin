@@ -41,7 +41,7 @@ module Records
 
               div class: "flex flex-row items-center gap-1" do
                 color_icon(value: account.color, size: "w-2 h-2")
-                text account.title
+                plain account.title
               end
             end
 
@@ -68,8 +68,8 @@ module Records
 
         div class: "text-right" do
           span class: tokens("justify-self-end font-bold text-md", amount_class) do
-            text symbol
-            text record.amount.format
+            plain symbol
+            plain record.amount.format
           end
         end
       end

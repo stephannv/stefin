@@ -38,7 +38,7 @@ module Accounts
         render Accounts::Components::Breadcrumbs.new do
           breadcrumb_item do |i|
             i.color_icon(value: account.color)
-            i.text account.title
+            i.plain account.title
           end
 
           breadcrumb_item do
@@ -55,7 +55,7 @@ module Accounts
           data: {turbo_method: :delete, turbo_confirm: t(".destroy_confirm")}
         ) do
           icon(name: :trash, size: "w-4 h-4")
-          text t(".destroy")
+          plain t(".destroy")
         end
       end
     end

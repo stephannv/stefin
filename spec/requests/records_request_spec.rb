@@ -145,7 +145,7 @@ RSpec.describe "Records management" do
         record = create(:record, user: user)
 
         expect do
-          put record_path(record.id), params: {record: {account_id: account.id, category_id: category.id, amount_cents: 0 }}
+          put record_path(record.id), params: {record: {account_id: account.id, category_id: category.id, amount_cents: 0}}
         end.to have_authorized_scope(:active_record_relation).with(AccountPolicy)
       end
 
@@ -157,7 +157,7 @@ RSpec.describe "Records management" do
         record = create(:record, user: user)
 
         expect do
-          put record_path(record.id), params: {record: {account_id: account.id, category_id: category.id, amount_cents: 0 }}
+          put record_path(record.id), params: {record: {account_id: account.id, category_id: category.id, amount_cents: 0}}
         end.to have_authorized_scope(:active_record_relation).with(CategoryPolicy)
       end
     end

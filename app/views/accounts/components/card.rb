@@ -16,7 +16,7 @@ module Accounts
               div class: "flex flex-row justify-between" do
                 div class: "flex gap-4 items-center" do
                   color_icon value: account.color
-                  text account.title
+                  plain account.title
                 end
                 div class: "font-medium text-slate-500" do
                   account.balance.format

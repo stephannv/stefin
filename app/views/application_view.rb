@@ -1,4 +1,4 @@
-class ApplicationView < Phlex::View
+class ApplicationView < Phlex::HTML
   include Rails.application.routes.url_helpers
   include Ds::Helpers
 

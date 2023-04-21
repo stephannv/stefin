@@ -14,7 +14,7 @@ module Records
           empty_state.actions do
             link_button href: new_record_path, color: :primary do
               icon(name: :add, size: "w-6 h-6")
-              text t(".new_record")
+              plain t(".new_record")
             end
           end
         end

@@ -47,7 +47,7 @@ module Categories
 
         link_button href: new_category_path, size: :sm, color: :primary do
           icon(name: :add, size: "w-4 h-4")
-          text t(".new_category")
+          plain t(".new_category")
         end
       end
 

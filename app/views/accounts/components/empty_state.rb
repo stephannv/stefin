@@ -14,7 +14,7 @@ module Accounts
           empty_state.actions do
             link_button href: new_account_path, color: :primary do
               icon(name: :add, size: "w-6 h-6")
-              text t(".new_account")
+              plain t(".new_account")
             end
           end
         end

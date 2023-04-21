@@ -15,7 +15,7 @@ module Categories
             card.body do
               div class: "flex gap-4 items-center" do
                 color_icon value: category.color
-                text category.title
+                plain category.title
               end
             end
           end
