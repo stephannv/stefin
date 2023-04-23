@@ -15,7 +15,7 @@ module Ds
     end
 
     def title(&content)
-      h1 class: "flex-1 text-2xl", &content
+      h1 class: "flex-1 text-2xl font-medium", &content
     end
 
     def actions(&content)
