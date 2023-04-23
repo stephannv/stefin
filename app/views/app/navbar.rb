@@ -17,7 +17,7 @@ module App
         end
 
         div class: "flex-1" do
-          span(class: "text-xl truncate", href: root_path) { title }
+          span(class: "text-xl font-medium truncate", href: root_path) { title }
         end
       end
     end
