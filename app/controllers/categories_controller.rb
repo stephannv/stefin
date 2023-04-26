@@ -1,8 +1,6 @@
 class CategoriesController < ApplicationController
   def index
-    result = Categories::List.result(scope: categories_scope)
-
-    render Categories::Pages::Index.new(categories: result.categories)
+    render Categories::Pages::Index.new(categories: current_categories)
   end
 
   def new
