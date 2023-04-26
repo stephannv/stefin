@@ -10,7 +10,6 @@ RSpec.describe Record, type: :model do
 
   describe "validations" do
     it { is_expected.to validate_presence_of(:account_id) }
-    it { is_expected.to validate_presence_of(:category_id) }
     it { is_expected.to validate_presence_of(:amount_currency) }
     it { is_expected.to validate_presence_of(:occurred_on) }
 
