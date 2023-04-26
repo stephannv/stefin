@@ -49,10 +49,6 @@ class CategoriesController < ApplicationController
 
   private
 
-  def categories_scope
-    authorized_scope(Category.all)
-  end
-
   def category
     @category ||= Categories::Find.result(id: params[:id]).category
   end

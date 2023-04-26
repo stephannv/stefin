@@ -4,10 +4,9 @@ class Record < ApplicationRecord
   has_enumeration_for :group, with: RecordGroups, create_helpers: true, required: true
 
   belongs_to :account
-  belongs_to :category
+  belongs_to :category, optional: true
 
   validates :account_id, presence: true
-  validates :category_id, presence: true
   validates :amount_currency, presence: true
   validates :occurred_on, presence: true
 
