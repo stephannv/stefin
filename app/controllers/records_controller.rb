@@ -8,13 +8,13 @@ class RecordsController < ApplicationController
   def new
     record = Record.new(group: RecordGroups::EXPENSE, occurred_on: Time.zone.today)
 
-    render Records::Pages::New.new(record: record, accounts: accounts, categories: categories)
+    render Records::Pages::New.new(record: record, accounts: current_accounts, categories: current_categories)
   end
 
   def edit
     authorize! record
 
-    render Records::Pages::Edit.new(record: record, accounts: accounts, categories: categories)
+    render Records::Pages::Edit.new(record: record, accounts: current_accounts, categories: current_categories)
   end
 
   def create
@@ -25,7 +25,11 @@ class RecordsController < ApplicationController
     if result.success?
       redirect_to records_path, success: t(".success")
     else
-      new_page = Records::Pages::New.new(record: result.record, accounts: accounts, categories: categories)
+      new_page = Records::Pages::New.new(
+        record: result.record,
+        accounts: current_accounts,
+        categories: current_categories
+      )
 
       render new_page, status: :unprocessable_entity
     end
@@ -40,7 +44,11 @@ class RecordsController < ApplicationController
     if result.success?
       redirect_to records_path, success: t(".success")
     else
-      edit_page = Records::Pages::Edit.new(record: result.record, accounts: accounts, categories: categories)
+      edit_page = Records::Pages::Edit.new(
+        record: result.record,
+        accounts: current_accounts,
+        categories: current_categories
+      )
 
       render edit_page, status: :unprocessable_entity
     end
@@ -66,16 +74,6 @@ class RecordsController < ApplicationController
 
   def record
     @record ||= Records::Find.result(id: params[:id]).record
-  end
-
-  def accounts
-    scope = authorized_scope(Account.all, with: AccountPolicy)
-    Accounts::List.result(scope: scope).accounts.to_a
-  end
-
-  def categories
-    scope = authorized_scope(Category.all, with: CategoryPolicy)
-    Categories::List.result(scope: scope).categories.to_a
   end
 
   def authorize_related_data!

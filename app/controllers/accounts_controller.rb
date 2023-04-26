@@ -1,8 +1,6 @@
 class AccountsController < ApplicationController
   def index
-    result = Accounts::List.result(scope: accounts_scope)
-
-    render Accounts::Pages::Index.new(accounts: result.accounts)
+    render Accounts::Pages::Index.new(accounts: current_accounts)
   end
 
   def new
@@ -50,10 +48,6 @@ class AccountsController < ApplicationController
   end
 
   private
-
-  def accounts_scope
-    authorized_scope(Account.all)
-  end
 
   def account
     @account ||= Accounts::Find.result(id: params[:id]).account
