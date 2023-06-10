@@ -25,3 +25,11 @@ en:
         occurred_on: Date
         payee: Payee
         description: Description
+
+      transfer:
+        from_account_id: From
+        to_account_id: To
+        amount_cents: Amount
+        amount_currency: Amount currency
+        occurred_on: Date
+        description: Description

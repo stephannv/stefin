@@ -31,12 +31,20 @@ module Records
 
       def categorization_section
         div class: "flex flex-row items-center gap-3" do
-          color_icon(value: category.color, size: "w-8 h-8 lg:w-8 lg:h-8 aspect-square")
+          if record.transfer_id?
+            icon(name: :swap, size: "w-8 h-8 lg:w-8 lg:h-8 aspect-square")
+          else
+            color_icon(value: category.color, size: "w-8 h-8 lg:w-8 lg:h-8 aspect-square")
+          end
 
           div class: "grid grid-cols-12 items-center gap-2 w-full" do
             div class: "col-span-12 lg:col-span-6 flex flex-col" do
               span class: "font-semibold truncate" do
-                category.title
+                if record.transfer_id?
+                  "TransferTODO"
+                else
+                  category.title
+                end
               end
 
               div class: "flex flex-row items-center gap-1" do
@@ -63,15 +71,27 @@ module Records
       end
 
       def amount_section
-        amount_class = record.expense? ? "text-error" : "text-success"
-        symbol = record.expense? ? "-" : "+"
-
         div class: "text-right" do
-          span class: tokens("justify-self-end font-bold text-md", amount_class) do
-            plain symbol
+          span class: ["justify-self-end font-bold text-md", amount_text_color] do
+            plain amount_symbol
             plain record.amount.format
           end
         end
+      end
+
+      def amount_text_color
+        case
+        when record.transfer?
+          "text-base"
+        when record.expense?
+          "text-error"
+        when record.income?
+          "text-success"
+        end
+      end
+
+      def amount_symbol
+        record.expense? ? "-" : "+"
       end
     end
   end

@@ -1,0 +1,13 @@
+en:
+  transfers:
+    pages:
+      new:
+        new: New
+        page_title: New transfer
+
+    components:
+      breadcrumbs:
+        transfers: Transfers
+
+      form:
+        cancel: Cancel

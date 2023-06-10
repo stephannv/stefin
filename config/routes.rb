@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :accounts
   resources :categories
   resources :records
+  resources :transfers, only: %i[new create]
 end

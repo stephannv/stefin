@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_26_003020) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_27_233648) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -48,8 +48,23 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_26_003020) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "payee", default: ""
+    t.uuid "transfer_id"
     t.index ["account_id"], name: "index_records_on_account_id"
     t.index ["category_id"], name: "index_records_on_category_id"
+    t.index ["transfer_id"], name: "index_records_on_transfer_id"
+  end
+
+  create_table "transfers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "from_account_id", null: false
+    t.uuid "to_account_id", null: false
+    t.integer "amount_cents", default: 0, null: false
+    t.string "amount_currency", default: "BRL", null: false
+    t.date "occurred_on", null: false
+    t.string "description", default: ""
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["from_account_id"], name: "index_transfers_on_from_account_id"
+    t.index ["to_account_id"], name: "index_transfers_on_to_account_id"
   end
 
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -68,4 +83,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_26_003020) do
   add_foreign_key "categories", "users"
   add_foreign_key "records", "accounts"
   add_foreign_key "records", "categories"
+  add_foreign_key "records", "transfers"
+  add_foreign_key "transfers", "accounts", column: "from_account_id"
+  add_foreign_key "transfers", "accounts", column: "to_account_id"
 end
